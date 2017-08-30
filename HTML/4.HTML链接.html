@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>链接</title>
+    <style type="text/css">
+        .content {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        div {
+            padding-bottom: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="one">
+            <h3>HTML 链接</h3>
+            <a href="#tips">查看HTML锚点使用</a>
+            <p>超链接可以是字串 也可以是图片. 可以通过点击它来进行转跳到新文档或文档中的某个位置</p>
+        </div>
+
+        <div class="two">
+            <h3>HTML 链接属性</h3>
+            <p>使用 target 属性, 可以定义被链接的文档在何处显示默认会在当前页面进行显示. 但是如果添加 target="_blank"那么就会在新页面显示</p>
+        </div>
+
+        <div class="three">
+            <p>使用锚点. 添加 name="label". 可以用id 来代替 name 属性, 同样有锚点属性</p>
+            <p>例子:
+                <a name="tips">这里是HTML锚点使用</a>
+            </p>
+            <p>在其跳转到其他页面的锚点处
+                <a href="http://www.w3school.com.cn/html/html_links.asp#tips" target="_blank">有用的提示</a>
+            </p>
+        </div>
+
+        <div style="background-color: #ff0000;">
+            <h2>注意!:</h2>
+            <p>href 链接要将子文件夹的结尾以 "/" 结尾. 因为若不这样, 例如: href="http://www.w3school.com.cn/html. 这样就会向服务器产生两次HTTP请求. 这是因为: 服务器会添加 "\"到这个地址, 然后创建一个新的请求: href="http://www.w3school.com.cn/html/"</p>
+
+            <h3>提示:</h3>
+            <p>命名使用锚点最好常用于大型文档开始位置设置目录. 然后为每个章节设置锚点</p>
+            <p>即使锚点未被找到,也不会出现错误, 只会定位到链接文档顶部</p>
+        </div>
+    </div>
+</body>
+
+</html>

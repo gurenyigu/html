@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>框架</title>
+</head>
+
+<body>
+    <h3>框架</h3>
+    <p>两种框架 均支持跨域</p>
+    <p>通过使用框架,你可以在同一个浏览器窗口中显示不止一个页面. 每份HTML文档成为一个框架, 并且每个框架都独立于其他的框架</p>
+    <h5>坏处:</h5>
+    <ul>
+        <li>开发人员必须同时跟踪很多到的HTML文档</li>
+        <li>很难打印整张页面</li>
+    </ul>
+    <hr />
+    <h3>内联框架</h3>
+    <p>iframe标签,用于HTML页面中</p>
+    <p>一些老式浏览器不支持 iframe ,不支持是不被显示的</p>
+    <hr />
+    <h3 style="color:dodgerblue">框架结构标签(frameset)</h3>
+    <ul>
+        <li>frameset 不被 body 包裹</li>
+        <li>框架结构标签(&lt;frameset&gt;)定义如何将窗口分割为框架</li>
+        <li>每个 frameset 定义了一系列行或列</li>
+        <li>rows/columns 的值规定了每行或每列占据屏幕的面积</li>
+    </ul>
+    <h3>框架标签(Frame)</h3>
+    <p>是 frameset 的子标签</p>
+    <p>Frame 标签定义了放置在每个框架中的HTML文档</p>
+
+    <hr />
+    <h3>提示:</h3>
+    <p>假如一个框架有可见边框，用户可以拖动边框来改变它的大小。为了避免这种情况发生，可以在 frame 标签中加入：noresize="noresize"。</p>
+    <p>为不支持的浏览器添加 noframes 标签,如需文本需要 body 嵌套</p>
+
+    <hr />
+    <h3>内联框架</h3>
+    <a href="https://www.baidu.com" style="color: fuchsia" target="iframe_baidu">在内联框架中打开百度</a>
+    <iframe width="1000" src="#" frameborder="0" name="iframe_baidu">浏览器不支持iframe</iframe>
+    <hr />
+    <h3>导航框架</h3>
+    <h4>
+        <a target="showframe" href="./5.HTML%E5%88%97%E8%A1%A8.html">HTML列表</a>
+    </h4>
+    <h4>
+        <a target="showframe" href="./7.HTML%E5%9B%BE%E5%83%8F.html#target">HTML图像</a>
+    </h4>
+    <h4>
+        <a target="showframe" href="./6.HTML%E8%A1%A8%E6%A0%BC.html">HTML表格</a>
+    </h4>
+</body>
+
+</html>

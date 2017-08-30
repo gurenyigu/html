@@ -1,0 +1,23 @@
+@import url("./import.css");
+p {
+    /*    color: rgb(0, 255, 186);*/
+}
+
+table {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    width: 100%;
+    /*    text-align: left;*/
+}
+
+th {
+    border: 1px solid #aaa;
+}
+
+tr:nth-child(even) {
+    background-color: beige;
+}
+
+tr:nth-child(odd) {
+    background-color: bisque;
+}

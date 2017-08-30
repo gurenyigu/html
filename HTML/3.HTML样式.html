@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./link.css">
+    <title>样式</title>
+    <style type="text/css">
+        h6 {
+            color: #ebff00;
+        }
+        /* @import url("link.css"); */
+
+    </style>
+</head>
+
+<body>
+    <span style="border: 1px solid #00fff5">行内样式</span>
+    <p>link链入外部样式表样式:<br />
+        <span>使用链接式时与导入式不同的是它会以网页文件主体装载前装载CSS文件，因此显示出来的网页从一开始就是带样式的效果的，它不会象导入式那样先显示无样式的网页，然后再显示有样式的网页，这是链接式的优点。</span>
+    </p>
+    <h6>内部样式</h6>
+    <strong>import导入外部样式表:<br />
+        <span>导入式会在整个网页装载完后再装载CSS文件，因此这就导致了一个问题，如果网页比较大则会儿出现先显示无样式的页面，闪烁一下之后，再出现网页的样式。这是导入式固有的一个缺陷。</span>
+    </strong>
+</body>
+
+</html>

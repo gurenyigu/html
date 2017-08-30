@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10" cellspacing="5">
+        <caption>这是标题,紧随&lt;tabel&gt;标签使用,默认居中</caption>
+        <thead>
+            <tr>
+                <th>th 表头标签</th>
+                <th>默认剧中加粗</th>
+                <th>注意表格默认没有变框</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">rowspan属性,进行跨列</td>
+                <td>普通td单元格</td>
+                <td>默认居左</td>
+            </tr>
+            <tr>
+                <td colspan="2">colspan属性, 进行跨行</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>标签</th>
+                <th colspan="2">属性</th>
+            </tr>
+            <tr>
+                <td>table</td>
+                <td colspan="2">
+                    <table border="1" cellpadding="5">
+                        <tbody>
+                            <tr>
+                                <th>名称</th>
+                                <th>作用</th>
+                            </tr>
+                            <tr>
+                                <td>border</td>
+                                <td>设置整个表格的边框粗细,值为数字. 默认为0(无边框)一般使用css的border设置边框</td>
+                            </tr>
+                            <tr>
+                                <td>cellpadding</td>
+                                <td>设置每个单元格内的边框与内容边距,值为数字. 默认为0</td>
+                            </tr>
+                            <tr>
+                                <td>cellspacing</td>
+                                <td>设置每个单元格内的外框之间的距离,值为数字. 默认为0</td>
+                            </tr>
+                            <tr bgcolor="red">
+                                <td>background- color/image</td>
+                                <td>任意标签设置背景色;当然也可以指定图片等...</td>
+                            </tr>
+                            <tr>
+                                <td>frame</td>
+                                <td>为table标签设置边框,不支持IE,所以不推荐使用</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

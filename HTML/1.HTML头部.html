@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>头部</title>
+</head>
+
+<body>
+    <h3>HTML &lt;head&gt; 元素</h3>
+    <p> head 元素是所有头部元素的容器. 其中可以添加的标签为: &lt;title&gt; &lt;base&gt; &lt;link&gt; &lt;meta&gt; &lt;script&gt; &lt;style&gt; 下面一一介绍
+    </p>
+    <hr>
+    <h3>&lt;title&gt;元素</h3>
+    <p>用于定义文档标题, 必须属性</p>
+    <ul>
+        <li>定义浏览器工具栏中的标题</li>
+        <li>提供页面被添加到收藏夹时显示的标题</li>
+        <li>显示在搜索引擎结果中的页面标题</li>
+    </ul>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>dir</td>
+                <td>rtl ltr</td>
+                <td>规定元素中内容的方向</td>
+            </tr>
+            <tr>
+                <td>lang</td>
+                <td>language_code</td>
+                <td>规定元素中内容的语言代码</td>
+            </tr>
+            <tr>
+                <td>xml:lang</td>
+                <td>language_code</td>
+                <td>规定XHTML文档中元素内容的语言代码</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>&lt;base&gt;</h3>
+    <p>此标签为页面上的所有链接规定默认地址或默认目标(target)属性</p>
+    <pre>
+        &lt;base target="_blank"&gt;
+    </pre>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>href</td>
+                <td>URL</td>
+                <td>规定页面中所有相对链接的基准URL. 在通常情况下,浏览器会从当前文档的URL中提取响应的元素来填写相对URL中的空白. 使用 base 标签可以改变这一点. 浏览器所有将不再使用到当前文档URL, 而使用指定的基本URL 来解析所有的相对URL. 这其中收益的包括: a img link form 标签中的URL.</td>
+            </tr>
+            <tr>
+                <td colspan="3"><a href="./7.HTML%E5%9B%BE%E5%83%8F.html#target">target</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>&lt;link&gt;</h3>
+    <p>link 标签定义文档与外部资源之间的关系</p>
+    <p>HTML中 link标签没有结束标签</p>
+    <p>在XHTML中, link标签必须正确的关闭</p>
+    <p>link中只包含属性, 此元素只能存在 head中, 不过它可以存在任意次数</p>
+    <pre>
+        &lt;link rel="stylesheet" type="text/javascript" href="jquery-min.js" &gt;
+        &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+    </pre>
+    <hr>
+    <h3>&lt;style&gt; 元素</h3>
+    <p>此标签用于为HTML文档定义样式</p>
+    <pre>
+        &lt;style type="text/css"&gt; 
+          a {
+              color="red";
+          }
+        &lt;/style&gt;
+    </pre>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>href</td>
+                <td>URL</td>
+                <td>规定被链接文档</td>
+            </tr>
+            <tr>
+                <td>rel</td>
+                <td>alternate author help icon licence next pingback prefetch prev search sidebar stylecheet tag</td>
+                <td>规定当前文档与被链接文档之间的关系</td>
+            </tr>
+            <tr>
+                <td style="color: firebrick">sizes</td>
+                <td>heightxwidth | any</td>
+                <td>规定被链接资源的尺寸, 适用于 rel="icon"
+                    <ul>
+                        <li>heightxwidth: 为链接图标会定一个或多个以像素单位的宽高值.由x 或 X间隔</li>
+                        <li>any: 规定图标是可伸缩的(比如 SVG 图标)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>MIME_type</td>
+                <td>规定被链接文档的 MIME类型</td>
+            </tr>
+            <tr>
+                <td>media</td>
+                <td>media_query</td>
+                <td>规定被链接文档将被显示在什么设备上(所有浏览器支持: screen print all)</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>&lt;meta&gt; 元素</h3>
+    <p>元shug(metadata)是关于数据的信息</p>
+    <p>meta 标签提供关于HTML 文档的元数据. 元数据不会显示在页面上, 但是对于机器是可读的.</p>
+    <p>典型的情况是, meta元素被用于规定页面的描述 关键词 文档的作者 最后修改时间及其它元数据</p>
+    <p>meta始终位于 head 元素中. 元数据可用于浏览器(如何显示内容或重新加载页面), 搜索引擎(关键字),或其他WEB服务</p>
+
+    <h4>针对搜索引擎关键字</h4>
+    <p>一些搜索引擎会利用meta元素的name 和 content 属性来索引当前页面: 下面进行页面描述</p>
+    <pre>
+        &lt;meta name="description" content="复习 HTML, CSS, JAVASCRIPT" /&gt;
+    </pre>
+    <p>下面的meta元素定义页面的关键词</p>
+    <pre>
+      &lt;meta name="keywords" content="HTML, CSS, XML" /&gt;
+</pre>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>content(必须属性)</td>
+                <td>some_text</td>
+                <td>定义与 http-equiv 或 name属性相关的元信息
+                    <ul>
+                        <li>content属性提供了名称/值对中的值. 该值可以是任何有效的字符串</li>
+                        <li>content属性始终要和name属性或http-equiv属性一起使用</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>http-equiv</td>
+                <td>content-type expires refresh set-cookie</td>
+                <td>把content属性关联到HTTP头部
+                    <ul>
+                        <li>http-equiv 属性为名称/值对提供了名称</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>name</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>&lt;script&gt; 元素</h3>
+    <p>此标签用于定义客户端脚本, javascript</p>
+</body>
+
+</html>

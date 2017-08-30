@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>iframe内联框架</title>
+</head>
+
+<body>
+    <h3>iframe</h3>
+    <p>所有主流浏览器均支持内联框架</p>
+    <p>iframe元素可以创建包含另外一个框架的内框架</p>
+    <p>HTML 4.1 Strict DTD 和 XHTML 1.0 Strict DTD 中, 均不支持iframe元素</p>
+
+    <a href="https://www.baidu.com" target="iframe">打开百度</a>
+    <iframe srcdoc="<p style='color: red'>请点击链接</p>" frameborder="1" name="iframe" width="800" height="50%">该浏览器不支持iframe</iframe>
+    <table border='1' cellpadding="10" cellspacing="0">
+        <caption>iframe 中的属性</caption>
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>align</td>
+                <td>left right top middle bottom</td>
+                <td>不赞成使用, 样式代替</td>
+            </tr>
+            <tr>
+                <td>frameborder</td>
+                <td>1 or 0</td>
+                <td>规定是否显示变框</td>
+            </tr>
+            <tr>
+                <td style="color: darkred">name</td>
+                <td>frame_name</td>
+                <td>定义iframe名称, 可用配合 target 使用</td>
+            </tr>
+            <tr>
+                <td style="color: darkred">srcdoc</td>
+                <td>HTML_code 所有主流浏览器都支持 srcdoc属性(Opera需要12+ Safari需要5+).除了Internet Explorer. </td>
+                <td>显示在框架中的内容.必须是有效的HTML语法. 若浏览器支持 srcdoc属性, 则覆盖 src 属性(若已经设置)中的内容. 如果不支持 srcdoc属性, 则相应地会显示在 src属性(若已经设置)中的内容</td>
+            </tr>
+            <tr>
+                <td style="color: darkred">sandbox(H5)</td>
+                <td>
+                    IE9- Opera12- 不支持此特性
+                    <table border="1" cellpadding="5" cellspacing="1">
+                        <tbody>
+                            <tr>
+                                <th>值</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>空字符串</td>
+                                <td>应用以下所有限制</td>
+                            </tr>
+                            <tr>
+                                <td>allow-same-origin</td>
+                                <td>允许 iframe 内容被视为与包含文档有相同的来源</td>
+                            </tr>
+                            <tr>
+                                <td>allow-top-navigation</td>
+                                <td>允许iframe 内容从包含文档导航(加载)内容</td>
+                            </tr>
+                            <tr>
+                                <td>allow-forms</td>
+                                <td>允许表单提交</td>
+                            </tr>
+                            <tr>
+                                <td>allow-script</td>
+                                <td>允许脚本执行</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>如果被规定为空字符串(sandbox=""),sandbox属性将会启用一系列对行内框架中内容的额外限制. sandbox属性的值既可以是一个空字符串(应用所有限制), 也可以是空格分割的预定义值</td>
+            </tr>
+            <tr>
+                <td>height or width</td>
+                <td>pixels</td>
+                <td>规定内联框架高 宽</td>
+            </tr>
+            <tr>
+                <td>marginheight or marginwidth</td>
+                <td>pixels</td>
+                <td>定义 iframe内 顶部和底部的边距 / 左侧和右侧的边距</td>
+            </tr>
+            <tr>
+                <td>scrolling</td>
+                <td>
+                    <table border="1" cellpadding="5">
+                        <tbody>
+                            <tr>
+                                <td>auto</td>
+                                <td>默认值 需要的情况下需要滚动条</td>
+                            </tr>
+                            <tr>
+                                <td>yes</td>
+                                <td>始终显示滚动条(即使不需要)</td>
+                            </tr>
+                            <tr>
+                                <td>no</td>
+                                <td>从不显示滚动条(即使需要)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>规定是否在iframe中显示滚动条</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td style="color: dimgrey">longdesc</td>
+                <td>URL(没有浏览器支持)</td>
+                <td>规定一个页面,该页面包含了有关iframe 的较长描述</td>
+            </tr>
+            <tr>
+                <td style="color: dimgrey">seamless</td>
+                <td>仅支持Opera12+ Chrome Safari5+</td>
+                <td>使iframe看上去向包含文档的一部分(Chrome无效果)</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

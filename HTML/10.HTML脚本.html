@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>脚本</title>
+</head>
+
+<body>
+    <h3>HTML script 元素</h3>
+    <p> &lt;script&gt;标签用与定义客户端脚本,比如Javascript </p>
+    <p>必须的type属性规定脚本的MIME类型 type="text/javascript"</p>
+    <p>script 元素既可以包含脚本, 也可以通过 src属性指向脚本文件</p>
+    <hr />
+    <h3>&lt;noscript&gt; 标签</h3>
+    <p>noscript标签提供无法使用脚本时的替代内容, 比如: 在浏览器仅用脚本时, 或浏览器不支持脚本</p>
+    <p>noscript 元素包含普通HTML页面的body元素中能够找到的所有元素</p>
+    <p>只有在浏览器不支持脚本或者禁用脚本时,才会显示noscript元素中的内容</p>
+    <noscript>你的游览其不支持javascript</noscript>
+    <hr />
+    <h3>如何应付应对老式浏览器</h3>
+    <p>如果浏览器无法识别 script 标签, 那么 script 包含的内容以文本形式显示在网页上. 为了避免这种情况 可以把标签写在条件注释中.</p>
+</body>
+
+</html>

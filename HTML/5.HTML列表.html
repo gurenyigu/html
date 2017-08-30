@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="15" cellspacing="5">
+        <tbody>
+            <tr>
+                <th>类表类型</th>
+                <th>属性</th>
+                <th>样式</th>
+            </tr>
+            <tr>
+                <td>无序列表</td>
+                <td>type 嵌套</td>
+                <td>
+                    <ul>
+                        <li>果汁</li>
+                        <li>茶
+                            <ul type="circle">
+                                <li>红茶</li>
+                                <li>绿茶</li>
+                            </ul>
+                        </li>
+                        <li>牛奶</li>
+                    </ul>
+                    <ul>
+                        <li>type 指定索引前的标识符形状</li>
+                        <li>有: disc(圆实心,默认) circle(原空心) square(方实心)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>无序列表</td>
+                <td>start type</td>
+                <td>
+                    <ol start="4">
+                        <li>这里默认为1开始索引</li>
+                        <li>使用start 指定数字 指定开始索引</li>
+                    </ol>
+                    <ol type="A">
+                        <li>type 指定所有引值的类型</li>
+                        <li>可选值有: 1(默认,数字索引)</li>
+                        <li>A (大写英文索引)</li>
+                        <li>a (小写英文索引)</li>
+                        <li>I (大写罗马文索引)</li>
+                        <li>i (小写罗马文索引)</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>定义列表</td>
+                <td>项目与注释的组合</td>
+                <td>
+                    <dl>
+                        <dt>牛奶</dt>
+                        <dd>白色 凉的 喝的</dd>
+                        <dt>咖啡</dt>
+                        <dd>黑的 热的 喝的</dd>
+                    </dl>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
