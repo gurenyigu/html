@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+
+<body>
+    <h3>&lt;form&gt;元素</h3>
+    <table border="1" cellpadding="10">
+        <caption>form 属性列表</caption>
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>描述</th>
+                <th>示例</th>
+            </tr>
+            <tr>
+                <td>action</td>
+                <td>规定向何处提交表单的地址/提交页面(URL)</td>
+                <td>accept-charset="UTF-8"</td>
+            </tr>
+            <tr>
+                <td>method</td>
+                <td>规定在提交表单时所用的HTTP方法(默认: GET)</td>
+                <td>method="POST"</td>
+            </tr>
+            <tr>
+                <td>target</td>
+                <td>规定 action 属性中地址的目标(默认: _self)</td>
+                <td>target="_blank"</td>
+            </tr>
+            <tr>
+                <td>novalidate</td>
+                <td>规定浏览器不验证表单</td>
+                <td>novalidate</td>
+            </tr>
+            <tr>
+                <td>autocomplete</td>
+                <td>规定浏览器应该自动完成表单(默认: 开启)</td>
+                <td>autocomlete="off"</td>
+            </tr>
+            <tr>
+                <td>accept-charset</td>
+                <td>规定在被提交表单中使用的字符比编码(默认: 页面字符编码)</td>
+                <td>accept-charset="UTF-8"</td>
+            </tr>
+            <tr>
+                <td>entype</td>
+                <td>规定被提交数据的编码(默认: url-encoded)</td>
+                <td>ectype="application/x-www-form-urlencoded"</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>规定识别表单的名称(DOM: document.forms.name)</td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>例子</th>
+                <th>描述</th>
+                <th>提示</th>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td>&lt;form action="action_page.php" /&gt;</td>
+                <td>这个属性定义在提交表单时执行的动作.向服务器提交表单的通常做法是使用提交按钮这里的例子中,指定了某个服务器脚本处理被提交的表单</td>
+                <td>如果省略 action 属性, 则action 会被设置为当前页面</td>
+            </tr>
+            <tr>
+                <td>Mehod</td>
+                <td>&lt;form method="POST /&gt;</td>
+                <td>这个属性规定在提交表单时所用的HTTP方法.(GET or POST)</td>
+                <td>默认为GET方法. 使用GET时,表单数据在状态栏是可见的. <br> POST的安全性更加.因为在页面地址中被提交的数据不可见.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>&lt;fieldset&gt;组合表单数据</h3>
+    <p>&lt;fieldset&gt;元素组合表单中的相关数据(其实就是一个框)</p>
+    <p>&lt;legend&gt; 元素为 fiieldset元素提供一个标题, 嵌套其中</p>
+    <form action="action_page">
+        <fieldset>
+            <legend>登录表单</legend>
+            user: <br>
+            <input type="text" name="username" value="wds">
+            <br /> password: <br>
+            <input type="password" name="firsetpsw" value="password">
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>

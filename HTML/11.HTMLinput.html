@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+
+<body>
+    <h3>input元素</h3>
+    <p>&lt;input&gt; 是最重要的 表单元素</p>
+    <p>input 的形态取决于 type属性</p>
+    <table border="1" cellpadding="10">
+        <caption>
+            <h2>type</h2>
+        </caption>
+        <tbody>
+            <tr>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>text</td>
+                <td>定义常规文本输入.换行符将自动从输入值中删除</td>
+            </tr>
+            <tr>
+                <td>submit</td>
+                <td>定义提交按钮(提交表单)</td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td>图形提交按钮.必须使用src属性来定义图像的源和alt属性来定义替代文本.可以使用height width来定义图像大小(单位px)</td>
+            </tr>
+            <tr>
+                <td>button</td>
+                <td>没有默认行为的按钮</td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>复选框允许选择/取消选择单个值</td>
+            </tr>
+            <tr>
+                <td>radio</td>
+                <td>定义单选按钮输入(选择多个的一个)使用此方法必须给每个设置value值.name设置统一值</td>
+            </tr>
+            <tr>
+                <td>file</td>
+                <td>允许用户选择文件的控件.使用accept属性来定义控件可以选择的文件类型</td>
+            </tr>
+            <tr>
+                <td>hidden</td>
+                <td>不显示, 但其值交给服务器的控件</td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>其 值被屏蔽的单行文本输入. 使用maxlength属性来指定可以输入的值的最大长度</td>
+            </tr>
+            <tr>
+                <td>reset</td>
+                <td>将表单内容重置为默认值的按钮</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">color</td>
+                <td>用于指定颜色的控件.颜色选择器的UI没有必要的功能</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">date</td>
+                <td>用于输入日期的控件(年月日, 没有时间)</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">datetime-local</td>
+                <td>用于输入日期和时间的控件, 没有时区</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">email</td>
+                <td>用于编辑电子邮件地址的字段</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">month</td>
+                <td>用于输入一个月和一年的控件,没有时区</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">number</td>
+                <td>用于输入数字的控件</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">range</td>
+                <td>用于输入确切值不重要的数值的控件</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">search</td>
+                <td>用于输入搜索字符串的单行文本字段.换行符将自动从输入值中删除</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">tel</td>
+                <td>用于输入电话号码的控件.换行符将自动从输入值中删除,但不会执行其他语法.您可以使用诸如 psttern和maxlength之类的属性来限制在控件中输入的值.在:valid 与 :invalid CSS伪类中酌情应用</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">time</td>
+                <td>用于输入没有失去的时间值的控件</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">url</td>
+                <td>用于编辑URL的字段.在提交之前,输入值被验证为包含空字符串或有效的绝对URL.</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">week</td>
+                <td>用于输入不含时区的星期数和周号的日期控件</td>
+            </tr>
+        </tbody>
+    </table>
+    <mark>
+        注：HTML表单验证是不为脚本，确保输入的数据是正确的格式的替代品。有人对HTML进行调整太容易了，允许他们绕过验证，或者完全删除它。某些人也可能完全绕过您的HTML，并将数据直接提交到您的服务器。如果您的服务器端代码无法验证其接收到的数据，则在数据库中输入格式不正确的数据（或数据太大，类型错误等）的数据库时，灾难可能会发生。
+    </mark>
+    <table border="1" cellpadding="10">
+        <caption>&lt;input&gt;全局属性</caption>
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值/描述</th>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>要呈现的控件的类型.</td>
+            </tr>
+            <tr>
+                <td>accept</td>
+                <td>如果type类型为file,则该属性将指示服务器接受的文件类型,否则将被忽略.该值必须是以逗号分隔的唯一内容类型说明符类表:
+                    <ul>
+                        <li>以STOP字符(U+002E)开始的文件拓展名(例如: ".jpg,.png,.doc")</li>
+                        <li>一个有效的MIME类型,但没有拓展名</li>
+                        <li style="color:darkred">audio/*表示音频文件</li>
+                        <li style="color:darkred">video/*表示视频文件</li>
+                        <li style="color:darkred">image/*表示图片文件</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>checked</td>
+                <td>如果该元素的 type属性的值为 radio 或者 checkbox,则该布尔属性的存在制定了该空间的默认选择状态</td>
+            </tr>
+            <tr>
+                <td>disabled</td>
+                <td>这个布尔属性表示此表单控件不可用.特别是在禁用的控件中,click事件(不会触发).并且,禁用的控件的值在提交表单时也不会被提交.当type值为hidden,此属性别忽略</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">autocomplete</td>
+                <td>这个属性表示这个控件的值是否可被浏览器自动填充.如果type属性的值是 hidden checkbox radio file.或为按钮类型(botton submit reset image)则本属性被忽略.可用值:
+                    <ul>
+                        <li>off: 用户必须手动填充,或者该页面提供了自己的自动补全方法.浏览器不对此字段进行自动填充.</li>
+                        <li>on: 浏览器可以根据用户先前的填表情况对此字段自动填充</li>
+                        <li>name: 完整的姓名</li>
+                        <li>更多参考:
+                            <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input">火狐开发者网站</a>
+                        </li>
+                        <li>如果 input 元素上没有autocomplete属性,浏览器可以取包含其的 form元素的autocomplete属性</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color:darkred">autofoucus</td>
+                <td>这个布尔值的属性允许指定表单控件则页面加载时具有焦点(自动获得焦点),除非用户将其覆盖,例如通过键入不同的控件.文档中只有一个表单元素可以具有autofocus属性.如果type属性设置为隐藏则不能应用</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">autosave</td>
+                <td>该属性应定义为唯一值.如果type属性的值是搜索,则以前的搜索项值将保持在页面加载的下拉列表中.</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">form</td>
+                <td>input元素与其关联的 form 元素(其表单所有者). 属性的值必须是同一文档中的 form元素的ID.如果未指定此属性,则此input 元素必须是form 元素的后代. 此属性使 input 元素可以在文档中任意位置,而不仅仅作为 form 的后代元素</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">formaction</td>
+                <td>处理由 input元素提交的信息(如果他是 submit button image)的程序的URI.如果指定,他将覆盖form 元素有所者的 action 属性</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">formenctype</td>
+                <td>如果 input元素是submit button image, 则此属性指定用于将表单提交到服务器的内容的类型.可能的值是:
+                    <ul>
+                        <li> application/x-www-form-urlencoded: 如果未指定属性则为默认属性.</li>
+                        <li>multipart/form-data: 如果使用type属性设置为file的 input 元素,请使用此值.</li>
+                        <li>text/plain</li>
+                    </ul>
+                    如果指定了这个属性,他将覆盖元素表单所有者的 enctype 属性.
+                </td>
+            </tr>
+            <tr>
+                <td style="color:darkred">formmethod</td>
+                <td>如果 input 元素是 submit button image,则此属性指定浏览器用于提交表单的HTTP方法.可能值为:
+                    <ul>
+                        <li>post: 表单中的数据包含在表单的正文中,并发送到服务器</li>
+                        <li>get: 表单中的数据附加到表单属性URI中,带有 "?" 作为分隔符,并将生成的URI发送到服务器.当表单没有side-effects并且只包含ASCII字符时,请使用这个方法.</li>
+                    </ul>
+                    如果指定,此属性将覆盖元素表单所有者的method属性.
+                </td>
+            </tr>
+            <tr>
+                <td style="color:darkred">formnovalidate</td>
+                <td>如果 input 元素是 button submit image, 则此布尔属性指定表单在提交时不被验证.如果指定了此属性,他将覆盖元素表单所有者的novalidate属性</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">formtarget</td>
+                <td>如果 input 元素是 submit button image,则此属性是一个名称或关键字,指示在提交表单后收到的响应的显示位置. 这是浏览上下文的名称或关键字(例如,选项卡,窗口或内联框架).如果指定了此属性,他将覆盖元素表单所有者的目标属性.
+                    <ul>
+                        <li>_self: 将响应加载到与当前浏览环境相同的浏览上下文中</li>
+                        <li>_blank: 将响应加载到新的未命名浏览上下文中</li>
+                        <li>_parent: 将响应加载到当前父浏览上下文中.如果没有父级,此选项的行为方式与_self相同</li>
+                        <li>_top: 将响应加载到顶级浏览上下文中(即,作为当前浏览上下文的浏览上下文,并且没有父级)如果没有父级,此选项的行为方式与_self相同</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="">
+        <input type="search" autocomplete="name" />
+        <input type="color" />
+        <input type="reset" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>XHTML</title>
+</head>
+
+<body>
+    <h3>XHTML 是以 XML 格式编写的HTML</h3>
+    <p>XHTML 指的是可拓展超文本标记语言</p>
+    <p>XHTML 与 HTML 4.01几乎是相同的</p>
+    <p>XHTML 是更严格更纯净的HTML版本</p>
+    <p>XHTML 是以 XML 应用的方式定义的HTML</p>
+    <p>XHTML 是 2001年1月 发布的W3C推荐标准</p>
+    <p>XHTML 得到所有主流浏览器的支持</p>
+    <hr />
+    <h3>为什么要使用XHTML</h3>
+    <p>因特网上的很多页面包含了 劣质 的HTML</p>
+    <p>XML是一种必须正确标记且格式良好的标记语言</p>
+    <hr />
+    <h3>文档结构</h3>
+    <ul>
+        <li>XHTML DOCTYPE 是强制性的</li>
+        <li>&lt;html&gt; 中的 XML namespace 属性是 强制性的 </li>
+        <li>&lt;html&gt; &lt;head&gt; &lt;title&gt; &lt;body&gt;</li>
+    </ul>
+    <hr />
+    <h3>元素语法</h3>
+    <ul>
+        <li>XHTML元素必须正确嵌套</li>
+        <table border="1" cellspan="10">
+            <tbody>
+                <tr>
+                    <th>错误</th>
+                    <th>正确</th>
+                </tr>
+                <tr>
+                    <td>&lt;b&gt;&lt;i&gt;some_text&lt;b&gt;&lt;i&gt;</td>
+                    <td>&lt;b&gt;&lt;i&gt;some_text&lt;i&gt;&lt;b&gt;</td>
+                </tr>
+            </tbody>
+        </table>
+        <li>XHTML元素必须始终关闭</li>
+        <table border="1" cellspan="10">
+            <tbody>
+                <tr>
+                    <th>错误</th>
+                    <th>正确</th>
+                </tr>
+                <tr>
+                    <td>&lt;br&gt; <br /> &lt;hr&gt; <br /> &lt;img src="" alt=""&gt;</td>
+                    <td>&lt;br /&gt; <br /> &lt;hr /&gt; <br /> &lt;img src="" alt="" /&gt;</td>
+                </tr>
+            </tbody>
+        </table>
+        <li>XHTML元素必须小写</li>
+        <table border="1" cellspan="10">
+            <tbody>
+                <tr>
+                    <th>错误</th>
+                    <th>正确</th>
+                </tr>
+                <tr>
+                    <td>&lt;BODY&gt; <br /> &lt;P&gt;some_text&lt;P&gt; <br /> &lt;/BODY&gt;</td>
+                    <td>&lt;body&gt; <br /> &lt;p&gt;some_text&lt;p&gt; <br /> &lt;/body&gt;</td>
+                </tr>
+            </tbody>
+        </table>
+        <li>XHTML文档必须有一个根元素</li>
+    </ul>
+    <hr />
+    <h3>属性语法</h3>
+    <li>XHTML 属性必须是小写</li>
+    <table border="1" cellspan="10">
+        <tbody>
+            <tr>
+                <th>错误</th>
+                <th>正确</th>
+            </tr>
+            <tr>
+                <td>&lt;table WIDTH="100"&gt;</td>
+                <td>&lt;table width="100" /&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+    <li>XHTML 属性值必须用引号包围</li>
+    <table border="1" cellspan="10">
+        <tbody>
+            <tr>
+                <th>错误</th>
+                <th>正确</th>
+            </tr>
+            <tr>
+                <td>&lt;input checked&gt; <br> &lt;input readonly&gt; <br> &lt;input disabled&gt; <br> &lt;input disabled&gt; <br> &lt;input selected&gt;</td>
+                <td>&lt;input checked="checked"&gt; <br> &lt;input readonly="readonly"&gt; <br> &lt;input disabled="disabled"&gt; <br> &lt;input disabled="disabled"&gt; <br> &lt;input selected="selected"&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+    <li>XHTML 属性最小化也是禁止的</li>
+    <hr />
+    <h3>&lt;!DOCTYPE ...&gt; 是强制性的</h3>
+    <p>XHTML 文档必须进行 XHTML 文档类型声明 (XHTML DOCTYPE declaration)</p>
+    <pre>
+        &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+
+        &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+
+        &lt;head&gt;
+        &lt;title&gt;Title of document&lt;/title&gt;
+        &lt;/head&gt;
+
+        &lt;body&gt;
+        ......
+        &lt;/body&gt;
+
+        &lt;/html&gt;
+    </pre>
+    <hr />
+    <h3>如何从HTML转换到XHTML</h3>
+    <ol>
+        <li>向每张页面的第一行添加XHTL &lt;!DOCTYPE&gt;</li>
+        <li>向每张页面的html元素添加xmlns属性</li>
+        <li>把所有元素名改为小写</li>
+        <li>关闭所有空元素</li>
+        <li>把所有属性名改为小写</li>
+        <li>为所有属性值加引号</li>
+    </ol>
+</body>
+
+</html>

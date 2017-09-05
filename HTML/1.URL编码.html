@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML编码</title>
+</head>
+
+<body>
+    <h3>URL编码</h3>
+    <p>url只能通过ASCII 字符集通过因特网进行发送</p>
+    <p>由于URL常常会包含 ASCII 集合之外的字符, 所以URL必须转换为有效的ASCII编码</p>
+    <p>URL不能包含空格. URL编码通常使用 + 来代替空格</p>
+
+    <a href="http://www.w3school.com.cn/tags/html_ref_urlencode.html" target="iframe_box">更多URL编码参考</a>
+
+    <form action="http://www.w3school.com.cn/example/html/form_action.asp" name="input" target="iframe" method="get">
+        <input type="text" name="text" size="30">
+        <input type="submit" value="Submit">
+    </form>
+    <iframe srcdoc="点击 Submit" name="iframe" height="120" width="100%" frameborder="0"></iframe>
+    <iframe srcdoc="查看更多" name="iframe_box" width="100%" height="500" frameborder="0"></iframe>
+</body>
+
+</html>

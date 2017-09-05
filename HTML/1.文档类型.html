@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文档类型</title>
+</head>
+
+<body>
+    <h3>&lt;!DOCTYPE&gt;声明帮助浏览器正确的显示网页</h3>
+    <p>它不是一个HTML标签, 它为浏览器提供一项信息(声明),即HTML使用什么版本编写的</p>
+    <ol>
+        <li>声明必须位于第一行</li>
+        <li>没有结束标签, 不区分大小写</li>
+        <li>在 HTML 4.01 中，声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。HTML5 不基于 SGML，所以不需要引用 DTD。</li>
+    </ol>
+    <table>
+        <caption>HTML版本</caption>
+        <tbody>
+            <tr>
+                <th>版本</th>
+                <th>年份</th>
+                <th>声明方式</th>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td rowspan="2">1991</td>
+            </tr>
+            <tr>
+                <td>HTML+</td>
+                <td>1993</td>
+                <td>
+                    &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+                </td>
+            </tr>
+            <tr>
+                <td>HTML2.0</td>
+                <td rowspan="2">1995</td>
+            </tr>
+            <tr>
+                <td>HTML3.2</td>
+                <td rowspan="2">1997</td>
+            </tr>
+            <tr>
+                <td>HTML4.0.1</td>
+                <td>1999</td>
+                <td>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+                </td>
+            </tr>
+            <tr>
+                <td>XHTML1.0</td>
+                <td rowspan="2">2000</td>
+            </tr>
+            <tr>
+                <td>HTML5</td>
+                <td rowspan="2">2012</td>
+                <td>&lt;!DOCTYPE html&gt;</td>
+            </tr>
+            <tr>
+                <td>XHTML5</td>
+                <td rowspan="2">2013</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

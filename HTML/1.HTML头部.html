@@ -75,16 +75,6 @@
         &lt;link rel="stylesheet" type="text/javascript" href="jquery-min.js" &gt;
         &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
     </pre>
-    <hr>
-    <h3>&lt;style&gt; 元素</h3>
-    <p>此标签用于为HTML文档定义样式</p>
-    <pre>
-        &lt;style type="text/css"&gt; 
-          a {
-              color="red";
-          }
-        &lt;/style&gt;
-    </pre>
     <table border="1" cellpadding="10">
         <tbody>
             <tr>
@@ -125,6 +115,22 @@
         </tbody>
     </table>
     <hr>
+    <h3>&lt;style&gt; 元素</h3>
+    <p>此标签用于为HTML文档定义样式</p>
+    <pre>
+        &lt;style type="text/css"&gt; 
+          a {
+              color="red";
+          }
+        &lt;/style&gt;
+    </pre>
+    <ul>
+        <li>此标签用于为HTML文档定义样式信息.</li>
+        <li>type 属性时必须的, 定义style元素内容. 唯一可能值为 text/css</li>
+        <li>位于 head 部分中</li>
+        <li>其还存在一个可选属性 media. 同link标签的一样</li>
+    </ul>
+    <hr>
     <h3>&lt;meta&gt; 元素</h3>
     <p>元shug(metadata)是关于数据的信息</p>
     <p>meta 标签提供关于HTML 文档的元数据. 元数据不会显示在页面上, 但是对于机器是可读的.</p>
@@ -159,22 +165,133 @@
             </tr>
             <tr>
                 <td>http-equiv</td>
-                <td>content-type expires refresh set-cookie</td>
+                <td>content-type expires(到期) refresh(刷新) set-cookie</td>
                 <td>把content属性关联到HTTP头部
                     <ul>
                         <li>http-equiv 属性为名称/值对提供了名称. 并指示服务器在发送实际的文档前先在要传送给浏览器的 MIME 文档头部包含名称/值对</li>
-                        <li>当服务器向浏览器发送文档时,会先发送许多名称/值对.虽然有些服务器会发送许多这种名称/值对</li>
+                        <li>当服务器向浏览器发送文档时,会先发送许多名称/值对.虽然有些服务器会发送许多这种名称/值对,但是所有服务器都至少要发送一个: content-type:text/html. 这会告诉浏览器准备接收一个HTML文档</li>
+                        <li>使用带有 http-equiv 属性的 &lt;meta&gt; 标签时,服务器将把名称/值对添加到发送给浏览器的内容头部. 例如添加:
+                            <pre>
+                            &lt;meta http-equiv="charset" content="iso-8859-1"&gt;
+                            &lt;meta http-equiv="expires" content="31 Dec 2018"&gt;
+                        </pre>
+                            <p>这样的话 发送到浏览器的头部就应该包含:</p>
+                            <pre>
+                            content-type: text/html
+                            charset: iso-8859-1
+                            expires: 31 Dec 2018
+                        </pre>
+                            <p>只有浏览器可以接收这些头部字段, 并能以适当的方式使用他们时,这些字段才有意义</p>
+                            <pre>
+                                例子:(如果网站更改了URI, 那么可以使用 meta 进行重定向)
+                                &lt;meta http-equiv="Content-Type" content="text/html; charset=gb2312" /&gt;
+                                &lt;meta http-equiv="Refresh" content="5; url=https://www.baidu.com" /&gt;
+                            </pre>
+                        </li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td>name</td>
+                <td>author(作者) description(描述) keywords generator(引擎) revised(修订) others</td>
+                <td>把　content 属性关联到一个名称
+                    <ul>
+                        <li>name属性提供了名称/值对中的名称. HTML 和 XHTML 标签都没有指定任何预先定义的 meta 名称. 通常情况下, 您可以自由使用对自己和源文档的读者来说有意义的名称.</li>
+                        <li>"keywords"是一个经常被用到的名称. 他为文档定义了一组关键字.某些搜索引擎在遇到这些关键字时,会用这些关键字对文档进行分类</li>
+                        <li>类似这样该的meta标签可能对与进入搜索引擎有所帮助:
+                            <pre>
+                            &lt;meta name="keywords" content="HTML,ASP,PHP,SQL"&gt;
+                        </pre>
+                        </li>
+                        <li>如果没有提供 name 属性, 那么名称/值对中的名称会采用 http-equiv属性的值</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>scheme</td>
+                <td>some_text</td>
+                <td>定义用于翻译content属性的格式. 应该在由 head 标签的 profile 属性指定的概况文件进行了定义</td>
             </tr>
         </tbody>
     </table>
     <hr>
     <h3>&lt;script&gt; 元素</h3>
-    <p>此标签用于定义客户端脚本, javascript</p>
+    <p>此标签用于定义客户端脚本, 如:javascript</p>
+    <p>script 元素既可以包含脚本语句, 也可以通过 src 属性指向外部脚本文件</p>
+    <p>必须的type属性规定脚本的MIME类型</p>
+    <p>JavaScript的常见应用 图像操作 表单验证 动态内容更新</p>
+    <p style="background-color: fuchsia">如果在frameset 标签后,将被忽略;元素中的代码没有位于哪个函中,那么那些代码会在页面被加载时立即执行.</p>
+    <p style="background-color: fuchsia">元素中的代码没有位于哪个函中,那么那些代码会在页面被加载时立即调用.</p>
+    <p>XHTML 与 HTML4 使用略有不同, 在XHTML中:</p>
+    <pre>
+        &lt;script type="text/javascript"&gt;&lt;![CDATA[
+            document.write("Hello World")
+         //]]&gt;&lt;/script&gt;
+    </pre>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td style="color: firebrick">async (H5)</td>
+                <td>async</td>
+                <td>
+                    <ul>
+                        <li>async 属性规定一旦脚本可用, 则会异步执行</li>
+                        <li>async 属性仅适用与外部脚本(只有在使用SRC属性时)</li>
+                        <li>
+                            <ol>
+                                <li>如果async="async" 脚本相对于 页面的其余部分异步的执行(当页面继续进行解析时,脚本也将执行)</li>
+                                <li>如果不使用async且defer="defer": 脚本将在页面完成解析时执行</li>
+                                <li>如果即不使用async 也不使用 defer: 在浏览其继续解析前, 立即读取并执行脚本</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: crimson">defer (仅在IE中可用)</td>
+                <td>defer</td>
+                <td>
+                    defer属性规定是否对脚本执行进行延迟, 直到页面加载完毕
+                </td>
+            </tr>
+            <tr>
+                <td>charset</td>
+                <td>charset(UTF-8)</td>
+                <td>
+                    <ul>
+                        <li>charset属性规定在外部脚本文件中使用的字符编码</li>
+                        <li>如果外部文件中的字符编码与主文件中的编码方式不同,就要用到charset属性</li>
+                        <li>默认字符编码为: ISO-8859-1</li>
+                    </ul>
+                    <h3>src 和 charset 属性</h3>
+                    <p>对于特别长的 JavaScript 程序或者经常重复使用的教程来说,你可以希望这些代码存放到一个单独的文件中. 这种情况下,让浏览器通过 src 属性来载入那个单独的文件</p>
+                    <p>src 的值是包含这个JavaScript程序的文件的URL. 保存的文件的MIME类型应是 application/x-javascript, 但如果文件名的后缀为.js, 也能够被正确配置了的服务器进行恰当的处理</p>
+                    <pre>
+                        <p>指定下载名为 jquery.js 的 JavaScript程序</p>
+                        &lt;script type="text/javascript" src="jqurey.js" &gt; &lt;/script&gt;
+                    </pre>
+                    <p>charset 属性与 src 属性一起使用, 告诉浏览器用来编码这个javascript程序的字符集.</p>
+                    <p>Unicode标准涵盖了世界上所有的字符,表点和符号,不伦使用何种平台 程序 语言 Unicode都能够进行文本数据的处理 存储 交换. </p>
+                    <p>UTF-8, 它的字符可以是1-4个字节长, UTF-8卡一表示Unicode标准中的任意字符. UTF-8向后兼容ASCII. 他是网页 电子邮件的首选编码</p>
+                </td>
+            </tr>
+            <tr>
+                <td>src</td>
+                <td>URL</td>
+                <td>外部脚本的URL,可能值:
+                    <ul>
+                        <li>绝对URL, 指向其他站点</li>
+                        <li>相对URL, 指向本站内文件</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
