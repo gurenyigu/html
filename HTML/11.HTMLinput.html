@@ -109,9 +109,12 @@
             </tr>
         </tbody>
     </table>
+    <br />
     <mark>
         注：HTML表单验证是不为脚本，确保输入的数据是正确的格式的替代品。有人对HTML进行调整太容易了，允许他们绕过验证，或者完全删除它。某些人也可能完全绕过您的HTML，并将数据直接提交到您的服务器。如果您的服务器端代码无法验证其接收到的数据，则在数据库中输入格式不正确的数据（或数据太大，类型错误等）的数据库时，灾难可能会发生。
     </mark>
+    <br />
+    <br />
     <table border="1" cellpadding="10">
         <caption>&lt;input&gt;全局属性</caption>
         <tbody>
@@ -122,6 +125,10 @@
             <tr>
                 <td>type</td>
                 <td>要呈现的控件的类型.</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>控件名称，他与表单一起提交</td>
             </tr>
             <tr>
                 <td>accept</td>
@@ -142,6 +149,14 @@
             <tr>
                 <td>disabled</td>
                 <td>这个布尔属性表示此表单控件不可用.特别是在禁用的控件中,click事件(不会触发).并且,禁用的控件的值在提交表单时也不会被提交.当type值为hidden,此属性别忽略</td>
+            </tr>
+            <tr>
+                <td>src</td>
+                <td>如果type属性的值为image，则该属性指定图像的位置的URI,以在image提交按钮上显示，否则将忽略.</td>
+            </tr>
+            <tr>
+                <td>value</td>
+                <td>控制初始值.该属性是可选的，除非type属性的值是　radio checkbox．请注意，当重新加载页面时，如果在重新加载之前更改了值，Gecko和IE将忽略HTML源代码中指定的值．</td>
             </tr>
             <tr>
                 <td style="color:darkred">autocomplete</td>
@@ -209,12 +224,87 @@
                     </ul>
                 </td>
             </tr>
+            <tr>
+                <td style="color:darkred">width</td>
+                <td>如果type属性的值为　image,则此属性定义为按钮显示的图像的宽度.</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">height</td>
+                <td>如果type属性的值为 image, 则此属性定义为按钮显示的图像的高度</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">list</td>
+                <td>标识给用户建议的预定义选项列表. 该value必须是同一文档中的 &lt;datalist&gt; 元素的　id. 浏览器只显示这个 input 元素的有效值的选项.当　type 的属性值为　hidden checkbox radio file button 时，忽略此属性， </td>
+            </tr>
+            <tr>
+                <td style="color:darkred">max</td>
+                <td>这项最大(数字或日期时间)值，不得小于其最小(min属性)值</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">min</td>
+                <td>这项最小(数字或日期时间)值，不得大于其最大值(max属性)值</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">step</td>
+                <td>使用最小和最大属性来限制可以设置数字或日期时间值的增量．　它可以是任何字符串或正的浮点数．如果此属性未设置值．则控件仅接受大于最小值的步长值的倍数的值．</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">maxlength</td>
+                <td>如果type的值是　text email search password tel url，　那么这个属性指明了用户最多可以输入的字符个数(按照Unicode编码方式计数)．对于其他类型的输入框，该属性被忽略．它可以大于　size属性的值．<br />如果不指定这个属性，那么用户可以输入任意多的字符(默认行为)．<br /> 如果指定为一个负值，那么元素表现出默认行为. <br/> 这个属性的约束在value值发生变化时执行． IE10+</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">multiple</td>
+                <td>这个布尔属性值　指定用户是否可以输入多个值．当属性设置为　email file时，此属性适用．其他属性则被忽略</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">pattern</td>
+                <td>检查控件值的正则表达式．pattern必须匹配整个值，而不仅仅是某些子集．使用　title属性来描述帮助用户的模式．当type属性的值为 text search tel url email时，此属性使用，否则将被忽略. IE10+</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">placeholder</td>
+                <td>提示用户可以在控件中输入什么．占位符文本中不可以包含　回车　换行．该属性适用于type属性为 text search tel url email中，否则非忽略．</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">readonly</td>
+                <td>此布尔属性值表示用户无法修改控件的值．如果type属性为 hidden range color checkbox radio file button类型，则忽略次属性.</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">required</td>
+                <td>这个属性指定用户在提交表单之前必须为该元素填充值，当type属性是: hidden image button(submit reset button)时不可用．:optional 和　:required　CSS伪元素的样式将可以对该字段应用更改外观</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">selectionDirection</td>
+                <td>选择发生的方向．如果在ＬＴＲ区域设置中从左到右进行选择(正向选择)，则值为"forward", 反向选择则为"backward",如果选择方向未知，则可以为"none"</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">size</td>
+                <td>控件的初始大小.值为像素，除非type属性的值为 text password，在这种情况下，该值为整数个字符．从HTML5开始，此属性仅在type属性设置为　text search tel url email password时适用．此外，size必须大于 0.如果不指定大小　，则默认为２０</td>
+            </tr>
+            <tr>
+                <td style="color:darkred">spellcheck</td>
+                <td>将此属性的值设置为true表示元素需要检查其拼写和语法．值default表示该元素即将根据默认行为进行操作，可能基于父元素自己的拼写检查．置为false表示不应该检查元素.</td>
+            </tr>
         </tbody>
     </table>
+    <h2>具体查看
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input">兼容性</a>
+    </h2>
     <form action="">
-        <input type="search" autocomplete="name" />
+        <input type="text" autocomplete="name" />
         <input type="color" />
         <input type="reset" />
+    </form>
+    <script type="text/javascript">
+        function alertSelectionDirection() {
+            var testInput = document.getElementById("test");
+            var direction = testInput.selectionDirection;
+            alert(direction);
+        }
+
+    </script>
+    <form>
+        <input type="text" name="text" id="test">
+        <input type="button" value="查看选中文本方向" onclick="alertSelectionDirection()">
     </form>
 </body>
 

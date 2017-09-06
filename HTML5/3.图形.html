@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图形</title>
+</head>
+
+<body>
+    <h3>canvas 元素用于在网页上绘制图形</h3>
+    <p>HTML5的 canvas元素使用 javascript 在网页绘图</p>
+    <p>画布是一个矩形区域,可以通过绘制路径 矩形 圆形 字符 图像 控制每一像素</p>
+    <hr />
+
+    <h3>svg</h3>
+    <h4>什么是SVG?</h4>
+    <ul>
+        <li>SVG指可伸缩矢量图形(Scalable Vector Graphics)</li>
+        <li>SVG用于定义 使用在网络的基于矢量的图形</li>
+        <li>SVG使用XML格式定义图形</li>
+        <li>SVG图形在放大或改变尺寸的情况下其图形质量不会有损失</li>
+        <li>SVG是W3C的标准</li>
+    </ul>
+
+    <h4>SVG的优势</h4>
+    <ul>
+        与其他图像格式相比(如: JPEG GIF),使用SVG的优势在于:
+        <li>SVG图像可通过文本编辑器来创建和修改</li>
+        <li>SVG图像可被索引 搜索 脚本化 压缩</li>
+        <li>SVG图像可伸缩</li>
+        <li>SVG图像可在任何的分辨率下被高质量的打印</li>
+        <li>SVG可在图像质量不下降的情况下被放大</li>
+    </ul>
+    <mark>Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持内联 SVG。</mark>
+    <hr />
+
+    <h3>Canvas SVG都允许在浏览器中创建图形,但是他们在根本上是不同的</h3>
+    <ul>
+        <h4>SVG</h4>
+        <li>SVG是一种使用XML描述2D图形的语言</li>
+        <li>SVG基于XML,这意味这SVG DOM中的每个元素都是可用的.可以为某个元素附加 JavaScript 事件处理器</li>
+        <li>SVG中,每个被绘制的图形均被视为对象.如果SVG对象的属性发生变化,那么浏览器能够自动重现图形</li>
+    </ul>
+    <hr />
+
+    <h3>Canvas</h3>
+    <ul>
+        <li>Canvas 通过JavaScript 来绘制2D图形</li>
+        <li>Canvas是挨个像素进行渲染的</li>
+        <li>一旦图像被绘制完成, 他就不会继续得到浏览器的关注.如果其位置发生变化,那么整个画布也将重新绘制,包括任何或许已被图形覆盖的对象</li>
+    </ul>
+    <hr />
+
+    <h3>两个对比</h3>
+    <ul>
+        <h4>Canvas</h4>
+        <li>依赖分辨率</li>
+        <li>不支持事件处理器</li>
+        <li>弱的文本渲染能力</li>
+        <li>能够以.png或.jpg格式保存结果图像</li>
+        <li>最适合图像密集型的游戏,其中的许多对象会被频繁绘制</li>
+    </ul>
+    <hr />
+    <h3>SVG</h3>
+    <ul>
+        <li>不依赖分辨率</li>
+        <li>支持事件处理</li>
+        <li>最适合带有大型渲染区域的应用程序(比如googlemap)</li>
+        <li>复杂度高会减慢渲染速度(任何过渡使用DOM的应用都不快)</li>
+        <li>不适合游戏应用</li>
+    </ul>
+</body>
+
+</html>

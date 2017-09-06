@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+</head>
+
+<body>
+    <h3>什么是HTML5</h3>
+    <p>HTML5是最新的HTML标准</p>
+    <p>HTML5是专门为承载丰富的WEB内容设计的，并且无需而外插件</p>
+    <p>HTML5拥有新的语义 图形 及 多媒体元素</p>
+    <p>HTML5提供的新元素的新的API简化了web应用程序的搭建</p>
+    <p>HTML5是跨平台的,被设计为在不同类型的硬件上运行</p>
+    <h4>HTML5中默认的字符编码是UTF-8</h4>
+
+    <h3>HTML5新的属性语法</h3>
+    <p>HTML5标准允许4种不同的属性语法</p>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>类型</th>
+                <th>示例</th>
+            </tr>
+            <tr>
+                <td>空属性</td>
+                <td>&lt;input type="text" value="John Doe" disabled&gt;</td>
+            </tr>
+            <tr>
+                <td>Unquoted</td>
+                <td>&lt;input type="text" value=John Doe&gt;</td>
+            </tr>
+            <tr>
+                <td>双引号</td>
+                <td>&lt;input type="text" value="John Doe"&gt;</td>
+            </tr>
+            <tr>
+                <td>单引号</td>
+                <td>&lt;input type="text" value='John Doe'&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>HTML5新特性:</h3>
+    <ul>
+        HTML5的一些最有趣的新特性
+        <li>新的语义元素, 比如: header footer article section 等元素</li>
+        <li>新的表单控件,比如 number date color week range</li>
+        <li>强大的图像支持(canvas svg)</li>
+        <li>强大的多媒体支持(video audio)</li>
+        <li>强大的新API,比如用本地储存取代cookie</li>
+    </ul>
+
+    <h3>HTML5 被删元素</h3>
+    <ul>
+        以下HTML4.0 元素已经在新的HTML5中被删除:
+        <li>acronym</li>
+        <li>applet</li>
+        <li>basefont</li>
+        <li>big</li>
+        <li>center</li>
+        <li>dir</li>
+        <li>font</li>
+        <li>frame</li>
+        <li>frameset</li>
+        <li>noframes</li>
+        <li>strike</li>
+        <li>tt</li>
+    </ul>
+
+    <h3>HTML5浏览支持</h3>
+    <p>所有现代浏览器都支持HTML5</p>
+    <p>鉴于浏览器会把未识别元素当作行内元素处理.所以可以如下操作:</p>
+    <pre>
+        header,section,footer,aside,nav,main,aeticle,figure {
+            display: block;
+        }
+    </pre>
+
+
+    <h3>Internet Explorer兼容问题</h3>
+    <p>上面的方案可以用于所有新的HTML5元素,但是:</p>
+    <p><mark>注意:</mark>IE8- 不支持对未知元素添加样式</p>
+    <p>这里有个库(填充到 head中):</p>
+    <pre>
+        &lt;!--[if lt IE 9]&gt;
+          &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;
+          &lt;/script&gt;
+        &lt;![endif]--&gt;
+    </pre>
+</body>
+
+</html>
