@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CORS</title>
+</head>
+
+<body>
+    <script>
+        //IE8 兼容代码
+        function createCORSRequest(method, url) {
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr) {
+                console.log("XMLHttpRequest...");
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined") {
+                console.log("XDmainRequest...");
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                xhr = null;
+            }
+            return xhr;
+        }
+
+
+        var request = createCORSRequest("GET", "http://127.0.0.1:8000/Server");
+
+        if (request) {
+            request.onload = function() {
+                // 收到跨域 ajax 响应之后的数据 responseText
+                console.log(request);
+                console.log(JSON.parse(request.responseText));
+            };
+
+            request.onerror = function() {
+                console.log("request error .....");
+            }
+            request.send();
+        }
+
+    </script>
+    <script>
+        //        var xhr = new XMLHttpRequest(); // xhr.open('GET', "http://127.0.0.1:8000?callback=jsonp", true); // xhr.send();
+        var data = {
+            name: "wu",
+            age: 20
+        };
+        console.log(JSON.stringify(data));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>跨域页面</title>
+</head>
+
+<body>
+
+	<mark>本页面: http://127.0.0.1/f.html</mark>
+	<script>
+		var data = {
+			name: '外部页面值'
+		};
+		window.name = JSON.stringify(data);
+
+	</script>
+
+	<div class="f">
+		<iframe width="600" height="300" src="http://192.168.1.204/s.html" frameborder="0"></iframe>
+		<p>代码核心, 通过 iframe.contentWindow 是得到嵌套页面的 window对象</p>
+		<p>通过iframe 的 contentWindow.name 属性进行数据交换</p>
+	</div>
+
+	<script>
+		window.onload = function() {
+			//			setTimeout(function() {
+			//				window.location.href = "http://127.0.0.1/Client.html"
+			//			}, 2000);
+
+			var frame = document.querySelector("iframe");
+
+			frame.onload = function() {
+				console.log(frame.contentWindow.name);
+			};
+
+			frame.src = "about:blank"; // {"name":"嵌套页面"}
+			// name 跨域的关键. 这个值可以为某个同源的页面, 或者(javascript:  data:  继承了载入他们页面的源)
+		};
+
+	</script>
+</body>
+
+</html>

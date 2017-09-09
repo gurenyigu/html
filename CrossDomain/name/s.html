@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>嵌入窗口</title>
+</head>
+
+<body>
+	<h1>子框架</h1>
+	<p>子框架中. window.parent.name 获得父框架的 window.name 值</p>
+	<p>通过 window.name 指定当前框架的值</p>
+	<script>
+		var data = {
+			name: '嵌套页面'
+		};
+
+		console.log("s: ", JSON.parse(window.parent.name));
+
+		window.name = JSON.stringify(data);
+
+	</script>
+</body>
+
+</html>

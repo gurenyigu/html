@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX</title>
+	<script src="../../jQuery/jQuery.300.js"></script>
+</head>
+
+<body>
+	<script>
+		$.ajax({
+			type: "POST",
+			url: "http://127.0.0.1:8000/Server",
+			dataType: "json",
+			cache: false,
+			timeout: 5000,
+			success: function(data) {
+				console.log(data);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log("error" + textStatus + " " + errorThrown)
+			}
+		});
+
+	</script>
+</body>
+
+</html>

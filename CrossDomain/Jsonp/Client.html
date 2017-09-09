@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>客户端</title>
+	<script type="text/javascript" src="../../../jQuery/jQuery.300.js"></script>
+</head>
+
+<body>
+	<h3>运行在 127.0.0.1:80</h3>
+	<script>
+		function jsonp(data) {
+			console.log(data);
+		}
+
+	</script>
+
+	<h3></h3>
+	<p>地址后面的 callback为约定俗称,事件要与后端沟通一致.</p>
+
+	<pre>
+        var Jsonp = document.createElement("script");
+        Jsonp.type = "text/javascript";
+        Jsonp.src = "http://127.0.0.1:8000?callback=jsonp";
+        document.getElementsByTagName("head")[0].appendChild(Jsonp);
+    </pre>
+	<ol>
+		<li>写在script 标签中 添加 src,利用 script 的跨域特点,进行数据请求</li>
+		<li>使用 jquery, 利用$.getJSON 这个方法会判断是否跨域,不跨域则使用 ajax 方法, 跨域则异步加载js文件来调用 jsonp的回调函数</li>
+	</ol>
+
+	<hr />
+	<h3>什么是 JSONP</h3>
+	<p>JSONP 是 JSON的一种使用模式, 可以解决主流浏览器的跨域数据访问问题. 其原理是根据 XMLHttpRequest 对象收到同源策略影响. 而 script 标签元素却不受同源策略影响, 可以加载跨域服务器上的脚本, 来生成 JSON资料. 用JSONP获取的不是JSON 而是可以运行在 JavaScript 的语句</p>
+
+	<ul>
+		<h3>Jsonp的优缺点</h3>
+		<li>优点: 它不像XMLHttpRequest对象实现的 Ajax那样受同源策略限制. 它的兼容性更好,在古老的浏览器中也可以运行, 不需要XMLHttpRequest 或 ActiveX的支持 </li>
+		<li>缺点: 他只支持GET 请求. 只支持跨域HTTP请求, 不能解决不同域的两个页面之间进行 JavaScript 调用问题</li>
+	</ul>
+
+	<!--    <script type="text/javascript" src="http://127.0.0.1:8000?callback=jsonp"></script>  -->
+
+	<!--      PHP      -->
+	<!-- <script src="http://127.0.0.1:8000/Server.php?callback=jsonp"></script>  -->
+
+	<!--  jquery  -->
+	<script>
+		//        $.getJSON('http://127.0.0.1:8000?callback=?', function(jsondata) {
+		//            console.log(jsondata);
+		//        });
+
+
+		$.ajax({
+			url: "http://127.0.0.1:8000",
+			dataType: "jsonp"
+			// 这里发现没有 ?callback因为这是设置 dataType: "jshonp"默认添加的
+			// 修改需要添加: jsonp: false, jsonpCallback: "callbackName"
+		}).done(function(jsonpdata) {
+			console.log(jsonpdata);
+		});
+
+	</script>
+</body>
+
+</html>

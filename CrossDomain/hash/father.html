@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>location.hash</title>
+</head>
+
+<body>
+	<ul>
+		<li>因为父窗口可以对 iframe 进行 URL 读写, iframe也可以读写父窗口的URL</li>
+		<li>URL有一部分被称为 hash, 就是#号及其后面的字符, 它一般用于浏览器锚点定位. Server端并不关心这部分,应该说不会产生HTTP请求,但是会产生浏览器历史记录.</li>
+		<li>此方法的原理就是改变URL的hash部分来进行双向通信.每个window通过改变其他window的 location 来发送消息(由于两个页面不在同一域下IE, Chrome不允许修改 parent.location.hash 的值, 所以要借助于父窗口域名下的一个代理 iframe)并通过监听自己的URL变化来接收消息.</li>
+		<li> 这个方式的通信会造成一些不必要的浏览器历史记录, 而且有些浏览器不支持 onhashchange 事件, 需要轮询来获知 URL 的改变</li>
+		<li>这样也存在缺点, 数据直接暴露在URL中, 数据容器和类型都有限制</li>
+	</ul>
+
+</body>
+
+</html>

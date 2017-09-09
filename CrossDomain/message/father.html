@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>post</title>
+</head>
+
+<body>
+	<h3>通过 HTML5 的 postmessage 方法跨域</h3>
+	<p>高级浏览器Internet Explorer8+ chrome Firfox Opera Safari 否支持这个功能</p>
+	<p>这个功能主要包括接收信息的 "message" 事件和发送消息的 "postMessage" 方法</p>
+	<p>比如 127.0.0.1/a.html 嵌入了一个 192.168.1.204/b.html 页面, 可以通过以下方法实现 A B之间的通信</p>
+	<hr />
+
+	<h3>postMessage 方法</h3>
+	<ul>otherWindow.postMessage(message, targetOrigin);
+		<li>otherWindow: 指目标窗口(给哪个window发消息),是window.frames属性的成员或者由 window.open 方法创建窗口</li>
+		<li>message: 是发送的消息, 类型为 String Object(IE8 9 不支持)</li>
+		<li>targetOrigin: 是限定消息的接收范围, 不限制使用 "*"</li>
+	</ul>
+
+	<hr />
+
+	<h3>window.postMessage()</h3>
+	<p>这个方法是HTML5 的一个新特性, 可以用来向其他所有的 window 对象发送消息. 需要注意的是: </p>
+	<p>需要保证所有脚本执行完再发送 MessageEvent, 如果在函数执行过程中调用了它, 就会让后面的函数超时无法执行</p>
+
+
+	<iframe width="600" height="300" src="http://192.168.1.204/son.html" frameborder="0"></iframe>
+
+	<script>
+		var data = {
+			name: 'wudongshuo'
+		};
+
+		var ifr = document.querySelector("iframe");
+
+		ifr.onload = function() {
+
+			var targetOrigin = "http://192.168.1.204";
+			ifr.contentWindow.postMessage(JSON.stringify(data), targetOrigin);
+			//			console.log(ifr.src);
+
+			//			console.log(ifr.contentWindow());
+		};
+
+	</script>
+</body>
+
+</html>

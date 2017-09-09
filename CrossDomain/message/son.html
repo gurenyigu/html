@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>son</title>
+</head>
+
+<body>
+
+	<h1>开始</h1>
+	<script>
+		var sendMessage = function() {
+
+		};
+
+		var onmessages = function(event) {
+			var data = event.data; // 消息
+			var origin = event.origin; //消息来源地址
+			var source = event.source; // 源 window 对象
+			console.log("执行");
+
+			if (origin == "http://127.0.0.1") {
+				console.log("if: ", data);
+
+				var h = document.querySelector("h1");
+				var d = "json = " + data + ";<br />origin = " + origin + ";";
+				console.log(d);
+				h.innerHTML = d;
+			}
+
+			//			setTimeout(sendMessage, 1000);
+		};
+
+		//		setTimeout(function() { // var h = document.querySelector("h1"); // h.innerHTML = "data"; // h.innerHTML = "1"; // }, 1000);
+
+		if (typeof window.addEventListener != "undefind") {
+			console.log("All");
+			window.addEventListener("message", onmessages, false);
+		} else if (typeof window.attachEvent != "undefind") {
+			console.log("IE");
+			window.attachEvent("onmessage", onmessage);
+		}
+
+	</script>
+</body>
+
+</html>

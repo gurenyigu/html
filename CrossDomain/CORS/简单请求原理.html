@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单的CORS请求</title>
+</head>
+
+<body>
+    <h3>请求体</h3>
+    <pre>
+        GET http://127.0.0.1:8000/Server HTTP/1.1
+        Origin: http://127.0.0.1
+        Host: 127.0.0.1
+        Accept-Language: en-US
+        Connection: keep-alive
+        User-Agent: Mozilla/5.0...
+    </pre>
+    <p>注意上面的 Origin 字段, 他表示 本次请求来自哪个源(协议 + 域名 + 端口).服务器根据这个值, 决定是否同意这次请求</p>
+    <ul>
+        <li>请求的 Origin 不在服务器允许范围内. 则返回的响应头不会包含 <mark>Access-Control-Allow-Origin</mark>字段. 这样的话 客户端解析出错误, 会被 XMLHttpRequest 的 onerror 回调函数捕获. <mark>这种错误无法被 状态码识别. 因为很有可能返回是 200</mark></li>
+        <br />
+        <li>请求在服务器指定返回内, 服务器返回的响应会多出几个头字段:
+            <pre>
+            Access-Control-Allow-Origin: http://127.0.0.1
+            Access-Control-Allow-Credentials: true
+            Access-Control-Expose-Headers: anything
+            Content-Type: text/html; charset=utf-8
+        </pre>
+        </li>
+    </ul>
+    <ol>
+        <li>Access-Control-Allow-Origin
+            <p>该字段是必须的.他的值为请求的 Origin 字段值. 或者 "*"(表示接收任意域名的请求).</p>
+        </li>
+        <br />
+        <li>Access-Control-Allow-Credentials
+            <p>该字段可选. 他的值是一个布尔值,表示是否允许发送 Cookie. 默认情况下, Cookie不包含在 CORS强求之中. 如果添加这个头(它只有一个值 true)表示服务器明确许可, Cookie可以包含在请求中,一起发送给服务器. 如果不要浏览器发送的 Cookie,删除该字段即可</p>
+        </li>
+        <li>Access-Control-Expose-Headers
+            <div>该字段可选. CORS请求时, XMLHttpRequest 对象 getResponseHeader() 方法只能拿到6个基本字段:
+                <ul>
+                    <li>Cache-Control</li>
+                    <li>Content-Language</li>
+                    <li>Content-Type</li>
+                    <li>Expires</li>
+                    <li>Last-Modified</li>
+                    <li>Pragma</li>
+                </ul>
+            </div>
+            如果想拿到其他字段, 就必须在 Access-Control-Expose-Headers 里面指定. 上面的例子指定, getResponseHeader("anything") 可以返回 anything字段
+        </li>
+    </ol>
+
+    <h3>withCredentials 属性</h3>
+    <div>
+        <p>上面说道, CORS请求默认不发送 Cookie 和 HTTP认证信息. 如果把Cookie 发送到服务器, 一方面要服务器同意(上面第二个字段提到).</p>
+        <mark>Access-Control-Allow-Credentials: true</mark>
+        <br />
+        <p>另一方面, 开发者必须在 AJAX请求中打开 withCredentials属性</p>
+        <mark>var xhr = new XMLHttpRequest();</mark>
+        <br />
+        <mark>xhr.withCredentials = true;</mark>
+    </div>
+    <div>
+        <p>否则,即使服务器同意发送 Cookie, 浏览器也不会发送. 或者,服务器要求设置 Cookie, 浏览器也不会处理.</p>
+        <p>但是, 如果省略 withCredentials 设置, 有的浏览器还是会一起发送 Cookie. 这时, 可以显示关闭 withCredentials</p>
+        <mark>xhr.withCredentials = false;</mark>
+        <p>需要注意的是, 如果要发送 Cookie, Access-Control-Allow-Origin 就不能设为 "*", 必须指定明确的 与请求网页一致的域名. 同时, Cookie 依然遵循同源政策,只有用服务器域名设置的Cookie才会上传,其他域名的Cookie不会上传.且CORS原网页代码中的 document.cookie 也无法读取服务器域名下的 Cookie</p>
+    </div>
+</body>
+
+</html>

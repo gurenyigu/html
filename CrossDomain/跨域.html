@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>跨域</title>
+</head>
+
+<body>
+	<h3>什么是跨域</h3>
+	<p>只要 协议 域名 端口, 有任意一个不同, 都被当作不同域.</p>
+	<table border="1" cellpadding="10">
+		<tbody>
+			<tr>
+				<th>URL</th>
+				<th>说明</th>
+				<th>是否允许跨域</th>
+			</tr>
+			<tr>
+				<td>http://www.a.com/a.js
+					<br /> http://www.a.com/b.js
+				</td>
+				<td>同以域名下</td>
+				<td>允许</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/lab/a.js
+					<br /> http://www.a.com/script/b.js
+				</td>
+				<td>同以域名下 不同文件夹</td>
+				<td>允许</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/lab/a.js
+					<br /> http://www.a.com:8000/script/b.js
+				</td>
+				<td>同以域名下 不同端口</td>
+				<td>不允许</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/lab/a.js
+					<br /> https://www.a.com/script/b.js
+				</td>
+				<td>不同协议</td>
+				<td>不允许</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/lab/a.js
+					<br /> http://70.23.165.1/script/b.js
+				</td>
+				<td>域名 与 其域名对应IP</td>
+				<td>不允许</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/a.js <br /> http://script.a.com/b.js
+				</td>
+				<td>子域不同</td>
+				<td>不允许(cookie这种情况下 也是不允许的访问)</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/a.js <br /> http://a.com/b.js
+				</td>
+				<td>不同二级域名</td>
+				<td>不允许(cookie这种情况下 也是不允许的访问)</td>
+			</tr>
+			<tr>
+				<td>http://www.a.com/a.js <br /> http://www.b.com/b.js
+				</td>
+				<td>不同域名</td>
+				<td>不允许</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<ol>
+		注意两点
+		<li>要知道 协议和端口造成的跨域问题 前台 是无能为力的(必须配合后台)</li>
+		<li>在跨域问题上, 域仅仅是通过 "URL的首部" 来识别而不会去尝试判断相同的IP地址对应着两个域或两个域是否在同一个IP上.
+			<br /> 一就是说. 判断 协议 域名 端口号 是否一模一样 window.location.protocol + window.location.host
+		</li>
+		<li>浏览器的同源策略为了防范跨站脚本攻击, 禁止客户端脚本对不同域的服务进行跨站调用</li>
+		<li>跨域请求并不是限制浏览器发起跨域请求, 而是请求可以正常发起, 达到服务器, 服务器返回结果会被浏览器拦截.</li>
+	</ol>
+</body>
+
+</html>

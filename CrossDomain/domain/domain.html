@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>document.domain</title>
+</head>
+
+<body>
+    <div>
+        <p>浏览器有一个同源策略, 其限制之一是不能通过 AJAX的方法取请求不同源中的文档.第二个限制是浏览器中不同域的框架之间是不能进行 js 的交互操作的. 不同的框架之间是不能进行js的交互操作的.不同的框架之间是可以获取 window对象的, 但却无法获取响应的属性和方法.</p>
+        <p>例如: 一个页面地址为: https://www.baidu.com/a.html. 在这个网页中有一个iframe, 他的 src是: https://www.google.com/b.html, 很显然,这个页面与它里面的 iframe框架是不同域的, 所以我们是无法通过在页面中使用 js代码获取 iframe 中的东西.</p>
+    </div>
+
+    <h4>document.domain 的方法只适用与不同子域的框架间交互</h4>
+    <H3>本节对 不同子域名的框架 跨域demo. 无法模拟 所以进行代码罗列</H3>
+    <ul>
+        <li>本页面: http://www.domain.com/a.html</li>
+        <li>子框架页面: http://domain.com/b.html</li>
+    </ul>
+    <mark>本页面: </mark>
+    <pre>
+        &lt;iframe src="http://domain.com/b.html" frameborder="0" onload="Domain()"&gt;&lt;/iframe&gt;
+        
+        &lt;script&gt;
+            document.domain = "domain.cn"; //设置为主域
+            function Domain() {
+                var iframe = document.querySelector("iframe");
+                var win = iframe.contentWindow; // 获得iframe window中的对象.
+    
+                var doc = win.document; 
+                var name = win.name; 
+            }
+
+        &lt;/script&gt;
+    </pre>
+    <mark>字框架中的代码: </mark>
+    <pre>
+        
+        &lt;script&gt;
+            document.domain = "domain.cn"; //设置为主域
+
+        &lt;/script&gt;
+    </pre>
+</body>
+
+</html>

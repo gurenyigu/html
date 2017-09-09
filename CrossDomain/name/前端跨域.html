@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>document.name</title>
+</head>
+
+<body>
+	<h3>window.name</h3>
+	<p>window对象有个name属性, 该属性有个特征: </p>
+	<p>在一个窗口中(window)的生命周期内, 当前窗口(标签)载入的所有的页面都是共享一个 window.name的.</p>
+	<p>每个页面对 window.name 都有读写权限, window.name 是持久存在一个窗口载入过的所有页面中的, 并不会因新页面的载入而进行重置</p>
+	<p>由于安全考虑, 浏览器始终保持 window.name 是 string 类型</p>
+	<ul>
+		<li>当设置为对象类型时: 浏览器转化为: "[object Object]"</li>
+		<li>是个函数时: 浏览器将函数转化为字符串</li>
+	</ul>
+	<hr />
+
+	<h3>要放在服务器上运行</h3>
+
+</body>
+
+</html>
