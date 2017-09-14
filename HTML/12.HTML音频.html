@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>音频</title>
+</head>
+
+<body>
+	<h3>多种播放音频的方法</h3>
+
+	<h4>使用插件</h4>
+	<p>浏览器插件是一种扩展浏览器标准功能的小型计算程序</p>
+	<p>插件的用途很多: 播放音乐 显示地图 验证银行帐号 控制输入等...</p>
+	<p>可以使用 object embed 标签来将插件添加到HTML页面中</p>
+	<p>这些标签定义资源(同超非HTML资源)的容器, 根据类型, 他们即会由浏览器显示, 也会由外部 插件显示</p>
+
+	<hr/>
+
+	<h3>使用 embed 元素</h3>
+	<p>embed 标签定义外部内容的容器. (HTML5标签, 在HTML4中非法, 但是所有浏览器都有效)</p>
+	<h5>嵌入一个M3文件:</h5>
+	<embed src="../Audio/song.mp3" type="" height="70" width="300" />
+	<div>问题:
+		<ul>
+			<li> embed 标签在 HTML4 中是无效的. 页面无法通过HTML4验证</li>
+			<li>不同的浏览器对音频格式的支持也不同</li>
+			<li>如果浏览器不支持文件格式, 没有插件的话无法播放该音频</li>
+			<li>如果用户的计算机未安装插件,无法播放音频</li>
+			<li>如果把该文件转换为其他格式, 仍然无法在所有浏览器中播放</li>
+		</ul>
+	</div>
+
+	<hr />
+	<h4>使用 object 元素</h4>
+	<p>&lt;object tag&gt;标签也可以定义外部内容的容器</p>
+	<p>下面代码片段能够显示嵌入网页中的MP3文件</p>
+	<object data="../Audio/song.mp3" type=""></object>
+	<div>
+		问题:
+		<ul>
+			<li>不同浏览器对音频格式的支持也不同</li>
+			<li>如果浏览器不支持该文件格式,没有插件的话就无法播放该音频</li>
+			<li>如果用户的计算机未安装插件,无法播放音频</li>
+			<li>如果把文件转换为其他格式, 人然无法在所有浏览器中播放</li>
+		</ul>
+	</div>
+
+	<hr />
+	<h3>使用HTML5 audio 元素</h3>
+	<p>audio 元素是一个HTML5元素, 在HTML4中是非法的, 但在所有浏览器中都有效.</p>
+	<mark>例子:</mark>
+	<audio controls="controls">
+		<source src="../Audio/song.mp3" type="audio/mp3" />
+		<source src="../Audio/song.ogg" type="audio/ogg" />
+		这里提供了 2 种播放格式, 都不支持的话就没有办法了
+	</audio>
+	<p>上面的例子使用了一个 mp3 和 ogg 如果都不支持, 则会显示错误的信息</p>
+	<div>
+		问题:
+		<ul>
+			<li>audio 标签在HTML4 中是无效的. 页面无法通过 HTML4验证.</li>
+			<li>必须把音频文件转换为不同的格式</li>
+			<li>audio 元素在老式浏览器中不起作用</li>
+		</ul>
+	</div>
+
+	<hr />
+	<h4>兼容的方法: </h4>
+	<audio controls="controls">
+		<source src="../Audio/song.mp3" type="audio/mp3" />
+		<source src="../Audio/song.ogg" type="audio/ogg" />
+		<embed src="../Audio/song.mp3" type="" />
+	</audio>
+	<p>上面的例子使用了两个不同的音频格式. HTML audio 元素会尝试 两种格式播放音频. 如果失败, 代码将尝试 embed 元素</p>
+
+	<hr />
+	<h4>雅虎播放器(不要使用)</h4>
+	<a href="../Audio/song.mp3">播放音效</a>
+	<script type="text/javascript" src="http://mediaplayer.yahoo.com/js">
+
+
+	</script>
+	<p>使用雅虎播放器是免费的. 将这段javascript标签放在网页下面即可</p>
+	<p>雅虎播放器为用户提供一个小型的播放按钮, 而不是完整的播放器.</p>
+
+	<hr />
+	<h4>超链接播放</h4>
+	<p>网页播含指向媒体文件的超链接, 大多数浏览器会使用 "辅助应用程序" 来播放文件</p>
+</body>
+
+</html>

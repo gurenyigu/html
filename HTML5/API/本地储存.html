@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<title>本地储存</title>
+</head>
+
+<body>
+	<h3>HTML本地储存: 优于COOKIES</h3>
+	<h4>什么是 HTML 本地储存?</h4>
+	<p>通过本地储存(Local Storage), web应用程序能够在用户浏览器中对数据进行本地的储存</p>
+	<p>在HTML5前, 应用程序数据只能存放在 cookie中, 包括每个服务器请求. 本地存储则更安全, 并且可在不影响网站性能的前提下将大量数据存储于本地</p>
+	<p>与 cookie 不同, 存储限制要大得多(至少5MB),并且信息不会被传输到服务器</p>
+	<p>本地储存经由起源地(origin)(经由域和协议.所有页面 从起源地, 都能够存储和访问你相同数据.</p>
+	<hr />
+
+	<h4>浏览器支持</h4>
+	<p>Chrome4+ IE8+ firefox3.5+ Safari4+ Opera11.5+</p>
+
+	<hr />
+	<h4>HTML本地存储对象</h4>
+	<p>HTML本地存储提供了两个在客户端存储数据的对象: </p>
+	<ul>
+		<li>window.localStorage - 存储没有截止日期的数据</li>
+		<li>window.SessionStorage - 针对一个session 来存储数据(关闭浏览器标签页时数据会丢失)</li>
+	</ul>
+
+	<h3>检测支持: </h3>
+	<pre>
+		if (typeof(Storage) !== "undefined") {
+			// 可用
+		} else {
+			// 不可用
+		}
+	</pre>
+
+	<h4>localStorage: </h4>
+	<p>localStorage 对象存储是没有截止日期的数据. 当浏览器被关闭不会被删除.</p>
+	<button onclick='set("lastname")'>设置</button>
+	<mark></mark>
+	<button onclick="showLocal('lastname')">获得localStorage</button>
+	<button onclick="del('lastname')">删除</button>
+	<script>
+		function set(value) {
+			localStorage.setItem(value, " bibili ");
+		}
+
+		function showLocal(value) {
+			document.querySelector("mark ").innerHTML = localStorage.getItem(value);
+		}
+
+		function del(value) {
+			document.querySelector("mark ").innerHTML = " ";
+			localStorage.removeItem(value);
+		}
+
+	</script>
+	<pre>
+	注意: 以下 key value 均为字符串
+		设置: localStorage.setItem(key, value); / localStorage.key = value;
+		获得: localStorage.getItem(key, value); / localStorage.key;
+		删除: localStorage.removeItem(key);
+	</pre>
+
+	<h4>sessionStorage 对象: </h4>
+	<p>他与localStorage 使用一致.</p>
+	<p>区别在于, 如果关闭了当前标签页, 关闭了浏览器. sessionStorage将被删除, localStorage 则不会</p>
+</body>
+
+</html>

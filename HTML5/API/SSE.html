@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Server-Sent</title>
+</head>
+
+<body>
+	<h3>Server-Sent 事件允许网页从服务器获得更新</h3>
+
+	<h4>Server-Sent 事件 - One Way Messaging</h4>
+	<p>Server-Sent 事件值得是网页自动从服务器获得更新</p>
+	<p>之前也可以做到这一点, 前提是网页不得不询问是否有可用更新.</p>
+
+	<h4>浏览器支持</h4>
+	<p>Chrome6+ IE不支持 firefox6+ Safari5+ Opera11.5+</p>
+
+	<hr />
+	<h3>接收Server-Sent 事件通知</h3>
+	<p>EventSource 对象用于接收服务器发送事件通知: </p>
+	<pre>
+		//新建一个 EventSource 对象. 指定发送更新的 URL
+		var source = new EventSource("demo-sse.php");
+		// 每收到一个更新就会触发 onmessage 事件
+		source.onmessage = function(event) {
+		// 处理
+			document.querySelector("tag").innerHTML += event.data + "<br />";
+		}
+	</pre>
+
+	<h4>检测支持: </h4>
+	<pre>
+		if(typeof(EventSource) !== "undefined") {
+			// 支持
+		} else {
+			// 不支持
+		}
+	</pre>
+
+	<h4>服务端</h4>
+	<ul>
+		<li>把报头 "Content-Type" 设置为 "text/event-stream"</li>
+		<li>规定不对页面进行缓存</li>
+		<li>输出要发送的日期（始终以 "data: " 开头）</li>
+		<li>向网页刷新输出数据</li>
+	</ul>
+	<pre>
+		
+		PHP 中的代码 (demo_sse.php)：
+
+		&lt;?php
+		header('Content-Type: text/event-stream');
+		header('Cache-Control: no-cache');
+
+		$time = date('r');
+		echo "data: The server time is: {$time}\n\n";
+		flush();
+		?&gt;
+
+		ASP 中的代码 (VB) (demo_sse.asp)：
+
+		&lt;%
+		Response.ContentType = "text/event-stream"
+		Response.Expires = -1
+		Response.Write("data: The server time is: " & now())
+		Response.Flush()
+		%&gt;
+	</pre>
+	<hr />
+	<table table="1" cellpadding="10">
+		<caption>EventSource对象</caption>
+		<tbody>
+			<tr>
+				<th>事件</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td>onopen</td>
+				<td>当通往服务器的连接被打开</td>
+			</tr>
+			<tr>
+				<td>onmessage</td>
+				<td>当通收到消息</td>
+			</tr>
+			<tr>
+				<td>onerror</td>
+				<td>当发生错误</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

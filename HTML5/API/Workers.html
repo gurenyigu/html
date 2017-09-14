@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Workers</title>
+</head>
+
+<body>
+	<h3>Web worker 是运行在后台的 JavaScript(独立于其他脚本), 不会影响页面性能</h3>
+	<p>当HTML页面中的脚本执行时, 页面是不可响应的, 直到脚本已完成.</p>
+	<p>所以将一些耗费CPU资源的脚本运行在后台, 就可以操作任何事情.</p>
+	<hr />
+	<h3>支持: </h3>
+	<p>Chrome4+ IE10+ firefox3.5+ Safari4+ Opera11.5+</p>
+
+	<hr />
+	<h3>检测 Web Worker 支持</h3>
+	<mark></mark>
+	<button onclick="start()">开始</button>
+	<button onclick="stop()">停止</button>
+	<pre>
+		if (typeof(Worker) !== "undefined") {
+			// 支持 进行操作
+		} else {
+			// 不支持!!
+		}
+	</pre>
+	<script>
+		function start() {
+			out = new Worker("./Worker.js");
+			out.onmessage = function(event) {
+				document.querySelector("mark").innerHTML = event.data;
+			}
+
+
+		};
+
+		function stop() {
+			out.terminate();
+			out = undefined;
+		}
+
+	</script>
+
+	<hr />
+	<h3>主动终止: </h3>
+	<pre>
+		out.terminate();
+	</pre>
+
+	<h3>复用: </h3>
+	<pre>
+		在其被终止后 
+		out = undefined;
+		即可复用这个脚本
+	</pre>
+</body>
+
+</html>

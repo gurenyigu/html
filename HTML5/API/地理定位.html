@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>定位</title>
+</head>
+
+<body>
+	<h3>定位用户位置</h3>
+	<p>HTML5 Geolocation API 用于获得用户的地理位置</p>
+	<hr />
+	<h3>浏览器支持</h3>
+	<p>IE9+ Firefox Chrome Safari Opera 支持地理定位</p>
+	<p>若在GPS的设备中, 定位更加精准</p>
+	<hr />
+	<h3>使用地址定位: </h3>
+	<p id="demo"></p>
+	<img src="" id="map" alt="地理定位">
+	<button onclick="getLocation()">获取位置</button>
+	<div id="mapholder"></div>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+		// 获取个存放状态消息元素
+		var x = document.querySelector("#demo");
+
+		// 获取定位API 检查是否支持
+		function getLocation() {
+			if (navigator.geolocation) {
+				// 定位功能的使用: (下面详解)
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			} else {
+				x.innerHTML = "您的浏览器不支持 Geolocation";
+			}
+		}
+
+		// 获得位置 并使用
+		function showPosition(position) {
+			console.log(`
+              精度: ${position.coords.accuracy}, 海拔: ${position.coords.altitude}, 海拔精度: ${position.coords.altitudeAccuracy}, 方向: ${position.coords.heading}, 速度: ${position.coords.speed}, 响应日期: ${position.timestamp} 
+             `);
+			// 经纬度显示
+			x.innerHTML = "经度: " + position.coords.latitude + "<br />纬度: " + position.coords.longitude;
+
+			// 使用 googlemap 根据当前经纬度进行图片获取
+			var latlon = position.coords.latitude + "," + position.coords.longitude;
+			var img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false";
+			document.querySelector("#map").src = img_url;
+			console.log(img_url);
+
+			// 根据当前经纬度 获得一个可拖拽的地图
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+			latlon = new google.maps.LatLng(lat, lon)
+			mapholder = document.getElementById('mapholder')
+			mapholder.style.height = '250px';
+			mapholder.style.width = '500px';
+
+			var myOptions = {
+				center: latlon,
+				zoom: 14,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				mapTypeControl: false,
+				navigationControlOptions: {
+					style: google.maps.NavigationControlStyle.SMALL
+				}
+			};
+			var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+			var marker = new google.maps.Marker({
+				position: latlon,
+				map: map,
+				title: "你在这里!"
+			});
+		}
+
+		// 错误处理: 
+		function showError(error) {
+			switch (error.code) {
+				case error.PERMISSION_DENIED:
+					x.innerHTML = "用户拒绝了定位请求!"
+					break;
+				case error.POSITION_UNAVAILABLE:
+					x.innerHTML = "无法获取当前地理定位!"
+					break;
+				case error.TIMEOUT:
+					x.innerHTML = "获取位置请求超时!"
+					break;
+				case error.UNKNOWN_ERROR:
+					x.innerHTML = "出现一个为止错误!"
+					break;
+			}
+		}
+
+	</script>
+	<table border="1" cellpacing="0" cellpadding="10">
+		<caption>getCurrentPosition() 方法返回对象</caption>
+		<tbody>
+			<tr>
+				<th>属性</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td>coords.latitude</td>
+				<td>十进制数的纬度</td>
+			</tr>
+			<tr>
+				<td>coords.longitude</td>
+				<td>十进制数的经度</td>
+			</tr>
+			<tr>
+				<td>coords.accuracy</td>
+				<td>位置精度</td>
+			</tr>
+			<tr>
+				<td>coords.altitude</td>
+				<td>海拔(海平面以上以 米 为单位)</td>
+			</tr>
+			<tr>
+				<td>coords.altitudeAccuracy</td>
+				<td>海拔精度</td>
+			</tr>
+			<tr>
+				<td>coords.aheading</td>
+				<td>方向(从正北开始 度 计算)</td>
+			</tr>
+			<tr>
+				<td>coords.speed</td>
+				<td>速度(m/s)</td>
+			</tr>
+			<tr>
+				<td>timestamp</td>
+				<td>响应的日期/时间</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>移动定位: </h3>
+	<p>navigator.geolocation.</p>
+	<p>watchPosition() 返回用户当前位置. 并继续返回用户移动时第位置. clearWatch() 停止.</p>
+	<script>
+		navigator.geolocation.watchPosition(showPositions);
+
+		function showPositions(position) {
+			console.log(`
+				${position.coords.latitude}, ${position.coords.longitude}
+             `);
+		}
+
+	</script>
+</body>
+
+</html>

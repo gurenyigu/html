@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>视频</title>
+</head>
+
+<body>
+	<h3>embed 标签</h3>
+	<p>在HTML代码显示嵌入网页的 Flash 视频: </p>
+	<embed src="../Video/movie.ogg" type="" />
+	<p>他需要 Flash 支持. 导致不支持 Flash 的浏览器将无法播放</p>
+	<h4>object 标签</h4>
+	<object data="../Video/movie.ogg" type=""></object>
+	<p>如果浏览器不支持 Flash, 则无法播放</p>
+
+	<hr />
+	<h3>video 标签</h3>
+	<p>HTML5新标签, 作用将视频嵌入到网页中</p>
+	<video width="320" height="240" controls="controls">
+  		<source src="movie.mp4" type="video/mp4" />
+  		<source src="movie.ogg" type="video/ogg" />
+  		<source src="movie.webm" type="video/webm" />
+  		您的浏览器不支持这三种视频格式
+	</video>
+
+	<hr />
+
+	<h3>HTML5 + object + embed</h3>
+	<video controls="controls">
+		<source src="../Video/movie.ogg" type="video/ogg" />
+		<source src="../Video/movie.ogg" type="video/mp4" />
+		<source src="../Video/movie.ogg" type="video/webm" />
+		<object data="../Video/movie.ogg">
+			<embed src="../Video/movie.ogg" />
+		</object>
+	</video>
+
+	<hr />
+	<h3>其他平台播放</h3>
+	<p>将视频长传到某平台, 然后在网页中插入 HTML 代码: </p>
+
+	<embed src="http://player.youku.com/player.php/sid/XMzI2NTc4NTMy/v.swf" width="480" height="400" type="application/x-shockwave-flash" /embed>
+
+	<hr />
+	<h3>使用超链接</h3>
+	<p>如果网页包含指向媒体文件的超链接, 大多数浏览器会使用"辅助应用程序"来播放</p>
+	<a href="../Video/movie.ogg">播放视频文件</a>
+</body>
+
+</html>

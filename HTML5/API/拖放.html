@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta cha rset="UTF-8">
+	<title>拖放</title>
+	<style>
+		#div1,
+		#div2 {
+			border: 1px solid red;
+			height: 50px;
+			width: 50px;
+		}
+		
+		#div2 {
+			border-color: dodgerblue;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h3>拖放</h3>
+	<p>拖放 (Drap Drop), 他只的是抓取魔物并拖入不同的位置</p>
+	<p>拖放是 HTML5 标准的组成部分, 任何元素都是可以拖放的</p>
+	<hr />
+	<h3>浏览器支持</h3>
+	<p>Chrome4+ IE9+ firefox3.5+ Safari6.0+ Opern12+</p>
+	<hr />
+
+	<h3>拖放实例: </h3>
+
+	<script type="text/javascript">
+		function allowDrop(event) {
+			console.log(event);
+			event.preventDefault();
+		}
+
+		function drag(event) {
+			event.dataTransfer.setData("text", event.target.id);
+		}
+
+		function drop(event) {
+			event.preventDefault();
+			var data = event.dataTransfer.getData("text");
+			event.target.appendChild(document.getElementById(data));
+		}
+
+	</script>
+
+	<img src="../../Images/eg_cute.gif" alt="拖动图" id="drag1" draggable="true" ondragstart="drag(event)" />
+
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<h3>过程</h3>
+	<ul>
+		<li>首先, 元素设置为可拖放, 要添加 draggable="true"</li>
+		<li>拖放的内容 - ondragstart 当拖动发生时,调用drag规定拖动什么数据. dataTransfer.setData()方法设置被拖动数据的数据类型和值 在这个示例中设置为 text类型, 值为拖动元素的ID</li>
+		<li>拖到何处 - ondragover. 这个事件规定被拖动的元素被放置何处. <br /> 默认情况下数据/元素无法被放置到其他元素中, 这时要取消这个默认行为.</li>
+		<li>进行放置 - ondrop. 当放开被拖数据/元素时, 会发生 drop 事件. <br/> drop 事件的默认行为是以链接形式打开.要取消这个默认事件 <br /> 通过 dataTransfer.getData() 方法获得被拖的数据. 该方法将返回在 setData() 方法中设置为相同类型的数据. <br /> 被拖数据是被拖元素的 id("drag1")</li>
+	</ul>
+</body>
+
+</html>
