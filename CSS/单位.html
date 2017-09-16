@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>单位</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.one {
+			width: 10vmax;
+			height: 10vh;
+			/*			border: 1px red solid;*/
+			background-color: aquamarine;
+		}
+		
+		.two {
+			font-size: 20px;
+		}
+		
+		.tt {
+			/*			font-size: 26px;*/
+			width: 10em;
+			height: 10rem;
+			background-color: forestgreen;
+		}
+		
+		.rr {
+			width: 1ex;
+			height: 1ex;
+			background-color: dodgerblue;
+		}
+		
+		.oo {
+			width: 2ch;
+			height: 2ch;
+			background-color: deeppink;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div class="one"></div>
+	<div class="two">
+		<div class="tt"></div>
+		<div class="rr"></div>
+		<div class="oo"></div>
+	</div>
+
+	<h3>长度单位: </h3>
+	<a href="http://www.w3cplus.com/css/7-css-units-you-might-not-know-about.html">参考</a>
+	<p><mark>相对单位:</mark> em, ex, ch(CSS3), rem, vw, vh, vmax, vmin, %</p>
+	<p><mark>绝对长度:</mark> cm, mm, q, in, pt, pc, px</p>
+	<hr>
+
+	<h3>vw, vh(自适应)</h3>
+	<p>vw, vh 直接对应当前可视窗口的width height..</p>
+	<p>设置: width: 100vw; height: 100vh;</p>
+	<p>计算: 假设当前浏览器宽 1000px, 高800px; 1vw = 1000/100 = 10px; 1vh = 800/100 = 8px;</p>
+	<p>就相当于: width: 1000px; height: 800px;</p>
+	<p>这个单位不会像 % 一样受父元素约束.</p>
+	<p>这里引入 vmax, xmin: 前者指当前宽 高的大者.后者指当前宽高的小者. </p>
+	<hr>
+
+	<h3>em, rem</h3>
+	<p>两者均为相对大小单位. 区别在于: </p>
+	<p>em: 当前行内文本字体尺寸大小. 这样的话就牵扯到继承. </p>
+	<p>如: 当前行内字体为 20px(来自父元素), 那么 10em = 10 * 20px = 200px;</p>
+	<p>rem: 相对于 html 标签. r = root(根). 也就是说,只要用rem作为单位. 都会以 html 标签设置为基础值.</p>
+	<h3>ex</h3>
+	<p>ex单位被定义为: 当前字体的 x-height(小写x的高度) 或者一个 em 的一半; </p>
+	<h3>ch</h3>
+	<p>ch单位被定义为 0-width(0字符的宽度)</p>
+</body>
+
+</html>

@@ -112,52 +112,173 @@
 
 			<tr>
 				<td>&lt;meter&gt;</td>
-				<td>定义已知范围（尺度）内的标量测量。</td>
+				<td>
+					定义已知范围（尺度）内的标量测量。<br /> 用于显示: 磁盘用量, 查询结果相关性等
+					<table border="1" cellpadding="10">
+						<tbody>
+							<tr>
+								<th>属性</th>
+								<th>值</th>
+								<th>描述</th>
+							</tr>
+							<tr>
+								<td>form</td>
+								<td>form_id</td>
+								<td>规定 meter 元素所属的一个或多个表单</td>
+							</tr>
+							<tr>
+								<td>high</td>
+								<td>number</td>
+								<td>规定被视作最高的值的范围</td>
+							</tr>
+							<tr>
+								<td>low</td>
+								<td>number</td>
+								<td>规定被视作最低的值的范围</td>
+							</tr>
+							<tr>
+								<td>max</td>
+								<td>number</td>
+								<td>规定范围最大值</td>
+							</tr>
+							<tr>
+								<td>min</td>
+								<td>number</td>
+								<td>规定范围最小值</td>
+							</tr>
+							<tr>
+								<td>optimum</td>
+								<td>number</td>
+								<td>规定度量的优化值</td>
+							</tr>
+							<tr>
+								<td>value</td>
+								<td>number</td>
+								<td>必选, 规定度量当前值</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td>Firefox Chrome Opera Safari6+ &nbsp;<del>I E</del>
+					<meter value="3" min="0" max="10">十分之三</meter>
+					<meter value="0.6">60%</meter>
+				</td>
 			</tr>
 
 			<tr>
 				<td>&lt;nav&gt;</td>
 				<td>定义文档内的导航链接。</td>
+				<td>IE9+ 及其他</td>
+			</tr>
+
+			<tr>
+				<td>&lt;output&gt;</td>
+				<td>定义不同类型的输出，比如脚本的输出。</td>
+				<td>
+					<p><del>I E</del> Chrome10+ Firefox4+ Opera11+ Safari7+</p>
+					<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+						<input type="range" name="b" value="50" /> +
+						<input type="number" name="a" value="10" /> =
+						<output name="result">60</output>
+					</form>
+				</td>
 			</tr>
 
 			<tr>
 				<td>&lt;progress&gt;</td>
-				<td>定义任务进度。</td>
+				<td>定义任务进度。如下载等</td>
+				<td>Chrome6+ IE10+ Firefox6+ Opera11+ Safari5.2+
+					<progress value="70" max="100">70 %</progress>
+					<progress></progress>
+				</td>
 			</tr>
 
 			<tr>
 				<td>&lt;rp&gt;</td>
-				<td>定义在不支持 ruby 注释的浏览器中显示什么。</td>
+				<td>定义在不支持 ruby 注释的浏览器中显示什么。
+				</td>
+				<td>Chrome5.0 Firefox38+ IE5+ <del>Opera</del> Safari5+</td>
 			</tr>
 
 			<tr>
 				<td>&lt;rt&gt;</td>
 				<td>定义关于字符的解释/发音（用于东亚字体）。</td>
+				<td>Chrome5.0 Firefox38+ IE5+ <del>Opera</del> Safari5+</td>
 			</tr>
 
 			<tr>
 				<td>&lt;ruby&gt;</td>
-				<td>定义 ruby 注释（用于东亚字体）。</td>
+				<td>定义 ruby 注释（用于东亚字体）。
+					<ruby>漢
+					<rt><rp>(</rp>ㄏㄢˋ<rp>)</rp></rt>
+					</ruby>
+				</td>
+				<td>Chrome5.0 Firefox38+ IE5+ <del>Opera</del> Safari5+</td>
 			</tr>
 
 			<tr>
 				<td>&lt;section&gt;</td>
-				<td>定义文档中的节。</td>
+				<td>定义文档中的节。比如章节, 页眉, 页脚
+					<table>
+						<tr>
+							<th>属性</th>
+							<th>值</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>cite</td>
+							<td>URL</td>
+							<td>section的URL,例如 section 摘自 wed的语句</td>
+						</tr>
+					</table>
+				</td>
+				<td>IE6+ Firefox9+ Chrome4+ Dafari5+ Opera11.1+</td>
+			</tr>
+
+			<tr>
+				<td>&lt;source&gt;</td>
+				<td>指定多种媒体资源, 对 audio video 元素. 空标签.
+					<table>
+						<tbody>
+							<tr>
+								<th>属性</th>
+								<th>描述</th>
+							</tr>
+							<tr>
+								<td>src</td>
+								<td>资源地址</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>MIME类型</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td>Firefox3.5+ IE9+ 及其他</td>
 			</tr>
 
 			<tr>
 				<td>&lt;summary&gt;</td>
-				<td>定义 &lt;details&gt; 元素的可见标题。</td>
+				<td>定义 &lt;details&gt; 元素的可见标题。
+					<details>
+						<summary>HTML 5</summary>
+						这篇文当帮你了解HTML5新标签
+					</details>
+				</td>
+				<td>Chrome12+ Firefox49+ <del>IE Opera</del> Safari6+</td>
 			</tr>
 
 			<tr>
 				<td>&lt;time&gt;</td>
-				<td>定义日期/时间。</td>
+				<td>定义日期/时间。便于机器识别</td>
+				<td><del>I E</del> Chrome62+ firefox22+ Opera22+ Safari7+ </td>
 			</tr>
 
 			<tr>
 				<td>&lt;wbr&gt;</td>
 				<td>定义可能的折行（line-break）。</td>
+				<td>Chrome1+ firefox1+ Opera11.7+ Safari4+</td>
 			</tr>
 		</tbody>
 	</table>

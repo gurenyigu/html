@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML 全局属性</title>
+</head>
+
+<body>
+	<table border="1" cellpadding="10" spacing="0">
+		<caption>Attribute</caption>
+		<tr>
+			<th>属性</th>
+			<th>描述</th>
+			<th>支持</th>
+		</tr>
+		<tr>
+			<td>id</td>
+			<td>
+				<p>规定HTML元素的唯一 id</p>
+				<p>&lt;element id="value"&gt;</p>
+				<p>id 在HTML文档中必须是惟一的</p>
+			</td>
+			<td>
+				All
+			</td>
+		</tr>
+		<tr>
+			<td>class</td>
+			<td>
+				<p>指定元素一个或多个类</p>
+				<p>&lt;element class="value"&gt;</p>
+				<p>class属性呢不能在这些元素中出现: base head html meta param script style title</p>
+				<p>类名不能以数字开头, 虽然IE支持</p>
+			</td>
+			<td>All</td>
+		</tr>
+		<tr>
+			<td>title</td>
+			<td>
+				<p>规定元素的额外信息</p>
+				<p>&lt;element title="text"&gt;</p>
+				<p>这些信息通常会在鼠标移动到元素上时显示一段工具提示文本</p>
+				<p>title属性常与 form a 元素一同使用. 也是 abbr acronym 元素的必须属性.</p>
+			</td>
+			<td>All</td>
+		</tr>
+		<tr>
+			<td>lang</td>
+			<td>
+				<p>规定元素内容的语言</p>
+				<p>&lt;element lang="language_code"&gt;</p>
+				<p>lang属性在以下标签中无效: base, br, frame, frameset, hr, iframe, param, script</p>
+			</td>
+			<td>All</td>
+		</tr>
+		<tr>
+			<td>dir</td>
+			<td>
+				<p>规定元素中的文本显示方向</p>
+				<p>&lt;element dir="ltr|rtl"&gt;</p>
+				<p>dir属性在以下标签中无效: base br frame hr frameset iframe param script</p>
+			</td>
+			<td>All</td>
+		</tr>
+		<tr>
+			<td>style</td>
+			<td>
+				<p>规定行内样式(inline style)</p>
+				<p>&lt;element style="key:value;key1:value1;"&gt;</p>
+				<p>其属性将覆盖全局的样式设定</p>
+			</td>
+			<td>All</td>
+		</tr>
+		<tr>
+			<td>tabindex</td>
+			<td>
+				<p>指定元素 tab键的切换次序(当tab用于导航时</p>
+				<p>&lt;element tabindex="unmber"&gt;</p>
+				<p>支持元素: a, area, button, input, object, select, textarea</p>
+			</td>
+			<td>All</td>
+		</tr>
+<tr>
+	<td style="color: firebrick">contenteditable</td>
+	<td>
+		<p>规定元素内容是否可编辑</p>
+		<p>&lt;element contenteditable="true|false"&gt;</p>
+		<p>此元素可以从父元素继承</p>
+	</td>
+	<td>All</td>
+</tr>
+		<tr>
+			<td style="color: firebrick">data-*</td>
+			<td>
+				<p>用于存储页面或应用程序的私有定制数据。</p>
+				<p>&lt;element data-*="value"&gt;</p>
+				<p>属性用于储存页面或应用程序的私有定义数据</p>
+				<ul>
+					<li>属性名不应该包含任何大写字母, 并且在前缀"data-*"之后必须有至少一个字符</li>
+					<li>属性值可以是任意字符串</li>
+				</ul>
+			</td>
+			<td>用户代理会忽略前缀为 data- 的属性. All</td>
+		</tr>
+		<tr>
+			<td>accesskey</td>
+			<td>
+				<p>指定元素激活(默认行为)的快捷方式</p>
+				<p>&lt;element accesskey="charracter"&gt;</p>
+				<p>支持元素: a, area, button, input, label, legend, textarea</p>
+				<p>使用Alt + accessKey (或者 Shift + Alt + accessKey) 来访问带有指定快捷键的元素。</p>
+				<p><a href="" accesskey="k">accesskey="k"</a></p>
+			</td>
+			<td>除了Opera</td>
+		</tr>
+		<tr>
+			<td style="color: firebrick">draggable</td>
+			<td>
+				<p>规定元素是否可拖动</p>
+				<p>&lt;element draggable="auto|true|false"&gt;</p>
+				<p>链接和图像默认是可拖动的</p>
+			</td>
+			<td>IE9+ 及其他</td>
+		</tr>
+		<tr>
+			<td style="color: firebrick">hidden</td>
+			<td>
+				<p>规定隐藏元素</p>
+				<p>&lt;element hidden="hidden"&gt;</p>
+			</td>
+			<td>
+				IE11+ 及其他
+			</td>
+		</tr>
+		<tr>
+			<td style="color: firebrick">spellcheck</td>
+			<td>
+				<p>规定是否对元素进行拼写和语法检查</p>
+				<p>&lt;element spellcheck="true|false"&gt;</p>
+				<ul>
+					<li>input元素中的文本值(非密码)</li>
+					<li>textarea 元素中的文本</li>
+					<li>可编辑元素中的文本</li>
+				</ul>
+			</td>
+			<td>IE10+ 及其他</td>
+		</tr>
+<tr>
+	<td style="color: firebrick">contextmenu</td>
+	<td>
+		<p>规定元素的上下文菜单, 在右键时出现上下文菜单</p>
+		<p>&lt;element contextmenu="menu_id"&gt;</p>
+	</td>
+	<td>仅支持 Firefox9+</td>
+</tr>
+		<tr>
+			<td style="color: firebrick">dropzone</td>
+			<td>
+				<p>dropzone 属性规定在元素上拖动数据时, 是否拷贝, 移动或链接被拖动</p>
+				<p>&lt;element dropzone="copy|move|link"&gt;</p>
+			</td>
+			<td>没有支持</td>
+		</tr>
+		<tr>
+			<td>translate</td>
+			<td>
+				<p>规定元素内容是否应该被翻译</p>
+				<p>&lt;element translate="yes|no"&gt;</p>
+				<p>使用 class="notranslata" 代替</p>
+			</td>
+			<td>
+				没有支持
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

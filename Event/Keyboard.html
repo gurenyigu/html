@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<base href="http://www.w3school.com.cn/">
+	<title>键盘事件</title>
+</head>
+
+<body onkeypress="key()">
+	<table class="" border="1" cellpadding="10">
+		<tbody>
+			<tr>
+				<th>属性</th>
+				<th>值</th>
+				<th>描述</th>
+			</tr>
+
+			<tr>
+				<td><a href="/tags/event_onkeydown.asp" title="HTML onkeydown 事件属性">onkeydown</a></td>
+				<td>script</td>
+				<td>在用户按下按键时触发。</td>
+			</tr>
+
+			<tr>
+				<td><a href="/tags/event_onkeypress.asp" title="HTML onkeypress 事件属性">onkeypress</a></td>
+				<td>script</td>
+				<td>在用户敲击按钮时触发。</td>
+			</tr>
+
+			<tr>
+				<td><a href="/tags/event_onkeyup.asp" title="HTML onkeyup 事件属性">onkeyup</a></td>
+				<td>script</td>
+				<td>当用户释放按键时触发。</td>
+			</tr>
+		</tbody>
+	</table>
+	<mark></mark>
+	<script>
+		function key() {
+			console.log(event);
+			var x;
+			if (event.which) {
+				// IE9+ 及其他
+				x = event.which;
+			} else if (window.event) {
+
+				// IE8及更低
+				x = event.keyCode;
+			}
+
+			var keychar = String.fromCharCode(x);
+			console.log(keychar);
+			document.querySelector("mark").innerHTML = keychar;
+		}
+
+	</script>
+</body>
+
+</html>
