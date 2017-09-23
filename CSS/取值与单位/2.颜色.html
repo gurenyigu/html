@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>颜色支持</title>
+	<style>
+		.box {
+			width: 150px;
+			height: 150px;
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h2>颜色取值类型: </h2>
+	<ul>
+		<li>Color Name</li>
+		<li>HEX</li>
+		<li>RGB</li>
+		<li>transparent(IE6-8部分支持)</li>
+		<p>CSS3: </p>
+		<li>RGBA(IE8+)</li>
+		<li>HSL(IE8+)</li>
+		<li>HSLS(IE8+)</li>
+		<li>currentColor</li>
+	</ul>
+
+	<hr />
+	<h3>Color Name</h3>
+	<div class="cont">
+		<strong>用颜色关键字来指定颜色。</strong>参阅：<a href="http://www.css88.com/book/css/appendix/color-keywords.htm#basic">基础颜色关键字</a>，<a href="http://www.css88.com/book/css/appendix/color-keywords.htm#system">系统颜色关键字</a>，<a href="http://www.css88.com/book/css/appendix/color-keywords.htm#extended">扩展颜色关键字</a>
+	</div>
+
+	<hr />
+	<h3>HEX</h3>
+	<h4>十六进制技法</h4>
+	<p>#RRGGBB OR #RGB</p>
+	<ul>
+		<li>RR: 红色值. 十六进制正整数</li>
+		<li>GG: 绿色值. 十六进制正整数</li>
+		<li>BB: 蓝色值. 十六进制正整数</li>
+	</ul>
+
+	<hr />
+	<h3>RGB</h3>
+	<h4>RGBj计法</h4>
+	<p>RGB(R,G,B)</p>
+	<ul>
+		<li>R: 红色值. 正整数|百分比</li>
+		<li>G: 绿色值. 正整数|百分比</li>
+		<li>B: 蓝色值. 正整数|百分比</li>
+	</ul>
+	<p>以上三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。</p>
+	<p>超出范围的数值将被截至其最接近的取值极限。如：rgb(300,0,0)会被解析为rgb(255,0,0)</p>
+	<p>正整数值255对应百分比数值100%，如：rgb(255,255,255) = rgb(100%,100%,100%) = #FFFFFF = #FFF</p>
+
+	<hr />
+	<h3>RGBA(R,G,B,A)</h3>
+	<p>此色彩模式与RGB相同，只是在RGB模式上新增了Alpha透明度。</p>
+	<p>A: Alpha透明度. 取值0~1之间.</p>
+	<p>IE6-8的rgba模式使用IE滤镜处理: <a href="http://msdn.microsoft.com/en-us/library/ms532997%28v=vs.85%29.aspx">查看</a></p>
+
+	<hr />
+	<h3>transparent</h3>
+	<h4>用来指定全透明色彩</h4>
+	<p>transparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值。</p>
+	<p>在CSS1中，transparent被用来作为background-color的一个参数值，用于表示背景透明。 </p>
+	p在CSS2中，border-color也开始接受transparent作为参数值，《Open eBook(tm) Publication Structure 1.0.1》[OEB101]延伸到color也接受transparent作为参数值。
+	<p>在CSS3中，transparent被延伸到任何一个有color值的属性上。</p>
+	<p>IE6 中, border-color color 不接受这个值</p>
+	<p>IE7-8中, color不接受这个值, 使用的话则 currentColor</p>
+
+	<hr />
+	<h3>HSL</h3>
+	<ul>
+		<li>H: Hue(色调), 0(或360)表示红色, 120表示绿色, 240表示蓝色, 也可取其他数值来指定颜色. 取值为: 0 ~ 360</li>
+		<li>S: Saturation(饱和度). 取值为: 0.0% ~ 100.0%</li>
+		<li>L: Lightness(亮度). 取值为: 0.0% ~ 100%.0</li>
+	</ul>
+
+	<hr />
+	<h3>HSLA</h3>
+	<h4>此色彩模式与HSL相同，只是在HSL模式上新增了Alpha透明度。</h4>
+	<ul>
+		<li>A： Alpha透明度。取值0~1之间。</li>
+	</ul>
+
+	<hr />
+
+	<h3>currentColor(潜在间接值)</h3>
+	<h4>currentColor是 color 属性的值，具体意思是指：currentColor关键字的使用值是 color 属性值的计算值。</h4>
+	<ul>
+		<li>在CSS1和CSS2中定义了 border-color 属性的默认值是 color 属性的值，但却没有为此定义一个相应的关键字。</li>
+		<li>这个问题在 SVG 中被意识到了，于是在 SVG 1.0 中引入了 currentColor 关键字。</li>
+		<li>在CSS3中扩展了颜色值包含 currentColor 关键字，并用于所有接受颜色的属性上。</li>
+		<li>如果currentColor关键字被应用在 color 属性自身，则相当于是 color: inherit。</li>
+	</ul>
+	<div class="box">
+		这个边框未设置颜色, 继承于浏览器默认字体颜色.
+	</div>
+</body>
+
+</html>

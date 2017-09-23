@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>生成内容</title>
+	<style>
+		.list {
+			counter-reset: item;
+		}
+		
+		.list>p::before {
+			counter-increment: item;
+			content: counter(item)".";
+			color: #f00;
+		}
+		
+		.counters ul {
+			list-style: none;
+			counter-reset: items;
+		}
+		
+		.counters li::before {
+			counter-increment: items;
+			content: counters(items, ".");
+			color: #f00;
+		}
+		
+		a::after {
+			content: attr(title);
+		}
+		
+		a::before {
+			content: attr(data-open);
+		}
+
+	</style>
+</head>
+
+<body>
+	<h2>接下来的值在CSS中引进, CSS3中修改</h2>
+
+	<h3>counter()</h3>
+	<p>在CSS2.1中 counter() 只能被使用在 content 属性上.</p>
+	<p>IE8+</p>
+	<p>示例: (不使用有序类表定制自己的标号)</p>
+	<div class="list">
+		<p>Node</p>
+		<p>Javascript</p>
+		<p>CSS</p>
+		<p>HTML</p>
+	</div>
+
+	<hr />
+
+	<h3>counters()</h3>
+	<p>重复插入计数器</p>
+	<p>counters类似于重复使用了 counter()</p>
+	<p>示例: </p>
+	<div class="counters">
+		<ul>
+			<li>Node</li>
+			<li>V8
+				<ul>
+					<li>C++</li>
+					<li>Javascript
+						<ul>
+							<li>DOM</li>
+							<li>BOM</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<hr />
+
+	<h3>attr()</h3>
+	<h4>插入元素属性的值</h4>
+	<p>在CSS2.1中attr()总是返回一个字符串。在CSS3中attr()可以返回多种不同的类型。</p>
+	<h4>举例: </h4>
+	<a href="www.baidu.com" title="百度" data-open="打开"></a>
+</body>
+
+</html>

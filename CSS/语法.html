@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>语法规则</title>
+</head>
+
+<body>
+	<h3>!important</h3>
+	<p>提升指定样式规则的应用优先级</p>
+	<p>兼容IE6+ 但是在IE6中有注意事项: </p>
+	<pre>
+		div {
+			color: #f00 !important;
+			color: #000;
+		}
+		// 这时在IE6中 !important  没有生效, 应用后者
+	</pre>
+
+	<hr />
+	<h3>/*comment*/</h3>
+	<p>注释内容, 支持IE6+</p>
+
+	<hr />
+	<h3>@charset</h3>
+	<h4>在外部样式表文件内使用. 指定该样式表使用的字符编码</h4>
+	<p>该规则后面的分号是必需的，如果省略了此分号，会生成错误信息。IE6+</p>
+	<pre>
+	@charset "utf-8";
+	</pre>
+
+	<hr />
+	<h2>CSS3: </h2>
+	<h3>@import</h3>
+	<h4>指定绝对或相对地址导入的外部样式表 及目标媒体</h4>
+	<p>该规则必须在样式表头部最先声明。并且其后的分号是必需的，如果省略了此分号，外部样式表将无法正确导入，并会生成错误信息。</p>
+	<p>IE使用@import无法引入超过35条的样式表。</p>
+	<pre>
+	@import url("global.css");
+	@import url(global.css);
+	@import "global.css";
+// 三种引入方式  均可
+	</pre>
+	<p>指定媒体查询: </p>
+	<pre>
+	@import url(example.css) screen and (min-width:800px);
+	@import url(example.css) screen and (width:800px),(color);
+	@import url(example.css) screen and (min-device-width:500px) and (max-device-width:1024px);
+	</pre>
+
+	<hr />
+	<h3>@media</h3>
+	<h4>指定样式表规则用于指定的媒体类型和查询条件</h4>
+	<p>IE8及以下只能实现CSS2中的部分, 即只可以设置媒体类型</p>
+	<p>媒体查询可以被用在CSS中的@media和@import 规则上, 也可以被用在HTML和XML中.</p>
+	<pre>
+	@media screen and (width: 800px) { ... }
+	@import url(example.css) screen and (width: 800px);
+	&lt;link media="screen and (width: 800px)" rel="stylesheet" href="example.css" /&gt;
+	&lt;?xml-stylesheet media="screen and (width: 800px)" rel="stylesheet" href="example.css" ?&gt;
+	</pre>
+	<pre>
+		使用示例
+	</pre>
+	<hr />
+
+	<h3>@font-face</h3>
+	<h4>设置嵌入HTML文档的字体</h4>
+	<p>向兼容所有浏览器,需同时使用TureTpe(.ttf)、Web Open Font Format(.woff)、Embedded Open Type(.eot)、SVG(.svg)四种字体格式。</p>
+	<pre>
+/* 示例, 将兼容所欲浏览器字体 */
+@font-face {
+  font-family: 'diyfont';
+  src: url('diyfont.eot'); /* IE9+ */
+  src: url('diyfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('diyfont.woff') format('woff'), /* chrome、firefox */
+  url('diyfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('diyfont.svg#fontname') format('svg'); /* iOS 4.1- */
+}
+	</pre>
+
+	<hr />
+	<h3>@keyframes</h3>
+	<p>指定动画名称和动画没帧效果</p>
+	<h4>定义效果时可以使用关键词指定开始与结束: from to, 也可 *%</h4>
+	<p>IE10+</p>
+	<pre>
+@keyframes testanimations {
+	from { transform: translate(0, 0); }
+	20% { transform: translate(20px, 20px); }
+	40% { transform: translate(40px, 0); }
+	60% { transform: translate(60px, 20); }
+	80% { transform: translate(80px, 0); }
+	to { transform: translate(100px, 20px); }
+}	
+	</pre>
+</body>
+
+</html>

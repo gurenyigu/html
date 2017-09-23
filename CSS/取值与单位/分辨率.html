@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>分辨率</title>
+</head>
+
+<body>
+	<h3>resolution</h3>
+	<p>单位: dpi, dpcm, dppx</p>
+
+	<ul>
+		<li>
+			<h4>普通屏幕? 高分屏幕/视网膜屏? : </h4>
+			普通屏幕通常包含96dpi，一般将2倍于此的屏幕称之为高分屏，即大于等于192dpi的屏幕，比如Mac视网膜屏就达到了192dpi（即2dppx），打印时一般会需要更大的dpi；
+		</li>
+	</ul>
+	<h3>dpi</h3>
+	<h4>每英寸包含点的数量(dots per inch)</h4>
+	<p>1dppx = 96dpi</p>
+	<p>1dpi ~= 0.39dpcm</p>
+	<p>1dpcm ~= 2.54dpi</p>
+	<p>1in = 2.54cm = 25.4mm = 101.6p = 72pt = 6pc = 96px</p>
+
+	<pre>
+@media screen and (min-resolution: 192dpi) {
+  .retina::befor {
+    content: "视网膜屏幕";
+  }
+}	
+@media screen and (min-resolution: 72dpi) and (max-resolution: 191dpi) {
+  .normal::befor {
+    content: "普通屏幕";
+  }
+}
+	</pre>
+
+	<hr />
+	<h3>dpcm</h3>
+	<p>没厘米包含点的个数</p>
+
+	<hr />
+	<h3>dppx</h3>
+	<h4>每像素包含点的数量(dots per pixel)</h4>
+
+</body>
+
+</html>

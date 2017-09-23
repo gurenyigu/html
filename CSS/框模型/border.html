@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<base href="http://www.w3school.com.cn">
+	<title>边框</title>
+</head>
+
+<body>
+	<h3>围绕内容与内边距的线段(不同样式 宽度 颜色).</h3>
+	<h4>CSS规范: 边框绘制在"元素背景之上". 也就是说: 元素的背景会出现在虚线这样的线段见. <br /> 兼容: CSS2 指出背景不包含边框线. CSS2.1更正的这一点. 注意老浏览器</h4>
+
+	<p>使用 border-color: transparent; 可以将边框透明.达到内边距效果. 但是 IE7前不支持 transparent. IE 会根据元素 color 值来设置边框颜色.</p>
+
+	<h4>任何浏览器都支持border-style 属性.</h4>
+	<table border="1" cellpadding="10">
+		<tbody>
+			<tr>
+				<th>值</th>
+				<th>描述</th>
+			</tr>
+
+			<tr>
+				<td>none</td>
+				<td>定义无边框。</td>
+			</tr>
+
+			<tr>
+				<td>hidden</td>
+				<td>与 "none" 相同。不过应用于表时除外，对于表，hidden 用于解决边框冲突。</td>
+			</tr>
+
+			<tr>
+				<td>dotted</td>
+				<td>定义点状边框。在大多数浏览器中呈现为实线。</td>
+			</tr>
+
+			<tr>
+				<td>dashed</td>
+				<td>定义虚线。在大多数浏览器中呈现为实线。</td>
+			</tr>
+
+			<tr>
+				<td>solid</td>
+				<td>定义实线。</td>
+			</tr>
+
+			<tr>
+				<td>double</td>
+				<td>定义双线。双线的宽度等于 border-width 的值。</td>
+			</tr>
+
+			<tr>
+				<td>groove</td>
+				<td>定义 3D 凹槽边框。其效果取决于 border-color 的值。</td>
+			</tr>
+
+			<tr>
+				<td>ridge</td>
+				<td>定义 3D 垄状边框。其效果取决于 border-color 的值。</td>
+			</tr>
+
+			<tr>
+				<td>inset</td>
+				<td>定义 3D inset 边框。其效果取决于 border-color 的值。</td>
+			</tr>
+
+			<tr>
+				<td>outset</td>
+				<td>定义 3D outset 边框。其效果取决于 border-color 的值。</td>
+			</tr>
+
+			<tr>
+				<td>inherit</td>
+				<td>规定应该从父元素继承边框样式。</td>
+			</tr>
+		</tbody>
+	</table>
+	<table border="1" cellpadding="10">
+		<tbody>
+			<tr>
+				<th>属性</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border.asp" title="CSS border 属性">border</a></td>
+				<td>简写属性，用于把针对四个边的属性设置在一个声明。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-style.asp" title="CSS border-style 属性">border-style</a></td>
+				<td>用于设置元素所有边框的样式，或者单独地为各边设置边框样式。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-width.asp" title="CSS border-width 属性">border-width</a></td>
+				<td>简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-color.asp" title="CSS border-color 属性">border-color</a></td>
+				<td>简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-bottom.asp" title="CSS border-bottom 属性">border-bottom</a></td>
+				<td>简写属性，用于把下边框的所有属性设置到一个声明中。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-bottom_color.asp" title="CSS border-bottom-color 属性">border-bottom-color</a></td>
+				<td>设置元素的下边框的颜色。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-bottom_style.asp" title="CSS border-bottom-style 属性">border-bottom-style</a></td>
+				<td>设置元素的下边框的样式。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-bottom_width.asp" title="CSS border-bottom-width 属性">border-bottom-width</a></td>
+				<td>设置元素的下边框的宽度。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-left.asp" title="CSS border-left 属性">border-left</a></td>
+				<td>简写属性，用于把左边框的所有属性设置到一个声明中。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-left_color.asp" title="CSS border-left-color 属性">border-left-color</a></td>
+				<td>设置元素的左边框的颜色。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-left_style.asp" title="CSS border-left-style 属性">border-left-style</a></td>
+				<td>设置元素的左边框的样式。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-left_width.asp" title="CSS border-left-width 属性">border-left-width</a></td>
+				<td>设置元素的左边框的宽度。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-right.asp" title="CSS border-right 属性">border-right</a></td>
+				<td>简写属性，用于把右边框的所有属性设置到一个声明中。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-right_color.asp" title="CSS border-right-color 属性">border-right-color</a></td>
+				<td>设置元素的右边框的颜色。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-right_style.asp" title="CSS border-right-style 属性">border-right-style</a></td>
+				<td>设置元素的右边框的样式。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-right_width.asp" title="CSS border-right-width 属性">border-right-width</a></td>
+				<td>设置元素的右边框的宽度。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-top.asp" title="CSS border-top 属性">border-top</a></td>
+				<td>简写属性，用于把上边框的所有属性设置到一个声明中。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-top_color.asp" title="CSS border-top-color 属性">border-top-color</a></td>
+				<td>设置元素的上边框的颜色。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-top_style.asp" title="CSS border-top-style 属性">border-top-style</a></td>
+				<td>设置元素的上边框的样式。</td>
+			</tr>
+			<tr>
+				<td><a href="/cssref/pr_border-top_width.asp" title="CSS border-top-width 属性">border-top-width</a></td>
+				<td>设置元素的上边框的宽度。</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

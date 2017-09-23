@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>定位</title>
+	<style>
+		body {
+			height: 2000px;
+		}
+		
+		ul,
+		li {
+			padding: 0;
+			margin: 0;
+		}
+		
+		.box {
+			list-style: none;
+			border: 1px solid red;
+			/*			overflow: hidden;*/
+		}
+		
+		.box::before,
+		.box::after {
+			content: "";
+			line-height: 0;
+			height: 0;
+			display: block;
+			visibility: hidden;
+			clear: both;
+		}
+		
+		.box>li {
+			float: left;
+			width: 25%;
+			height: 100px;
+		}
+		
+		.box>li:nth-child(1) {
+			background-color: dodgerblue;
+			position: relative;
+			right: 5px;
+			bottom: -10px;
+		}
+		
+		.box>li:nth-child(2) {
+			background-color: cornflowerblue;
+			position: relative;
+		}
+		
+		.box>li:nth-child(2)>div {
+			width: 80%;
+			height: 80px;
+			background-color: darkviolet;
+			position: absolute;
+			top: 35px;
+			right: 1px;
+		}
+		
+		.box>li:nth-child(3) {
+			background-color: aqua;
+			position: fixed;
+			left: 50%;
+		}
+		
+		.box>li:nth-child(3)>div {
+			position: absolute;
+			top: 50px;
+			right: 40px;
+			width: 50%;
+			height: 50%;
+			background-color: crimson;
+		}
+		
+		.box>li:nth-child(4),
+		.sticky {
+			background-color: cadetblue;
+			position: sticky;
+			top: 0px;
+			left: 75%;
+		}
+		
+		.sticky {
+			width: 25%;
+			height: 100px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h3>适用于除去 display 属性定义为 table-column-group | table-column之外的所有元素</h3>
+	<table border="1" cellpadding="10">
+		<caption>position 属性取值</caption>
+
+		<body>
+			<tr>
+				<th>属性值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td>static</td>
+				<td>对象遵循常规流. 此时定位偏移属性不会被应用</td>
+			</tr>
+			<tr>
+				<td>relative</td>
+				<td>根据所在标准流进行定位.参照自身在常规流中的位置通过top, right, bottom, left这4个定位偏移属性进行偏移时不会影响常规流中的任何元素. </td>
+			</tr>
+			<tr>
+				<td>absolute</td>
+				<td>对象脱离常规流, 此时偏移属性参照的是离自身最近的具有定位属性(除了static)祖先元素, 如果没有定位的最先元素, 则一直回溯到body元素,盒子的偏移位置不影响常规中的任何元素, 其margin不与任何margin折叠
+				</td>
+			</tr>
+			<tr>
+				<td>fixed</td>
+				<td>相对当前可视窗口定位. 最好不要为其祖先元素设置 transform, perspective 否则fixed失效</td>
+			</tr>
+			<tr>
+				<td style="color: firebrick">sticky</td>
+				<td>元素根据文档正常流进行定位, 然后根据 top right bottom left. 进行偏移. 偏移与relative一致不会影响其他元素
+					<div class="mark">不能有父元素</div>
+				</td>
+			</tr>
+		</body>
+	</table>
+	<ul class="box">
+
+		<li>relative</li>
+		<li>
+			relative
+			<div>
+				absolute
+			</div>
+		</li>
+		<li>fixed
+			<div>absolute</div>
+		</li>
+		<li>sticky</li>
+	</ul>
+	<!--	<div class="one">-->
+	<div class="sticky">sticky</div>
+	<!--	</div>-->
+</body>
+
+</html>

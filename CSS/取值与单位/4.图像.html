@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>图像</title>
+	<style>
+		.img {
+			background-image: image(black), url(../../Image);
+		}
+		
+		.box,
+		.radial,
+		.repeating-l,
+		.repeating-r {
+			width: 200px;
+			height: 200px;
+		}
+		
+		.box>div,
+		.radial>div,
+		.repeating-l>div,
+		.repeating-r>div {
+			width: 33.3333%;
+			height: 33.3333%;
+			float: left;
+		}
+		
+		.box>.one {
+			background-image: linear-gradient(green 10%, #333 40%, #233);
+		}
+		
+		.box>.two {
+			background-image: linear-gradient(to top right, #000, #f00 50%, #090);
+		}
+		
+		.box>.three {
+			background-image: linear-gradient(130deg, #456, #789 50%, #321);
+		}
+		
+		.radial>.one {
+			background: radial-gradient(farthest-side, #f00 20%, #ff0 50%, #080 80%);
+		}
+		
+		.radial>.two {
+			background: radial-gradient(circle closest-side, #f00, #ff0, #080);
+		}
+		
+		.radial>.three {
+			background: radial-gradient(farthest-side at top right, #f00, #ff0, #080);
+		}
+		
+		.repeating-l>.one {
+			background: repeating-linear-gradient(to right, #f00, #ff0 10%, #f00 15%);
+		}
+		
+		.repeating-l>.two {
+			background: repeating-linear-gradient(45deg, #f00, #ff0 10%, #f00 15%);
+		}
+		
+		.repeating-l>.three {
+			background: repeating-linear-gradient(to bottom left, #f00, #ff0 10%, #f00 15%);
+		}
+		
+		.repeating-r>.one {
+			background: repeating-radial-gradient(circle, #f00 0, #ff0 10%, #f00 15%);
+		}
+		
+		.repeating-r>.two {
+			background: repeating-radial-gradient(at top left, #f00, #ff0 10%, #080 15%, #ff0 20%, #f00 25%);
+		}
+		
+		.repeating-r>.three {
+			background: repeating-radial-gradient(circle closest-corner at 20px 50px, #f00, #ff0 10%, #080 20%, #ff0 30%, #f00 40%);
+		}
+
+	</style>
+</head>
+
+<body>
+	<h2>这不是一个CSS3新属性, 但是在CSS3中得到了增强.</h2>
+	<h4>&lt;image&gt; 取值可以为 url image() image-set() gradient</h4>
+	<h4>&lt;image&gt;值表示一个2D图像, 可以是url引用, 图像符号, 渐变符号</h4>
+	<p>image 可以用在包括: border-image-source, background-image, list-style-image, cursor等属性上, 他被用来取代 url属性值.</p>
+	<hr />
+	<h3>image()</h3>
+	<p>有些场景下, 图像可能是无效的, 比如当 url 指向的是一个无效的图像资源时. 一个无效的图像将表现为全透明, 但是当无效图像需要一些特殊行为时,可以使用image()</p>
+	<p>image() 用于指定图像或者图像替代</p>
+	<div class="img">
+	</div>
+	<a href="http://www.css88.com/book/css/values/image/image().htm">没有浏览器支持这个特性, 更多查看</a>
+	<pre>
+例如: 使用背景图片可以通过 background-position 来决定背景从哪个位置开始显示:
+div {
+  background-image: url(xx.png);
+  background-position: 10px 10px;
+}
+
+现在亦可以这样做: 
+div {
+  background-image: image(xx.png#xywh=10, 10, 20, 20);
+}
+这样可以以图像(10, 10)为坐标原点, 截取一个20x20的图像显示
+	</pre>
+
+	<hr />
+	<h3>image-set</h3>
+	<h4>image-set() 可以根据用户设备的分辨率匹配合适的图像</h4>
+	<a href="">支持不好</a>
+	<pre>
+div {
+	background-image: image-set( "test.png" 1x, "test-2x.png" 2x, "test-print.png" 600dpi );
+}
+	</pre>
+	<p>上述代码将会为普通屏幕使用 test.png，为高分屏使用 test-2x.png，如果更高的分辨率则使用 test-print.png，比如印刷</p>
+
+	<hr />
+	<a href="http://www.w3cplus.com/css3/new-css3-radial-gradient.html">径向渐变参考文章</a>
+	<h3>&lt;gradient&gt;</h3>
+	<h4>共有四种: linear-gradient() repeating-linear-gradient() radial-gradient() repeating-radial-gradient()</h4>
+	<h5>gradient 允许使用简单的语法实现颜色渐变，以便UA在渲染页面自动生成图像。</h5>
+	<p>渐变在一个拥有尺寸的盒子中被生成，被称之为渐变盒，但是渐变本身并没有内在的尺寸，也就说如果在一个没有尺寸的容器上定义渐变，将无法被呈现。gradient 可以应用在所有接受图像的属性上</p>
+
+	<h3>linear-gradient</h3>
+	<p>下述值表示渐变方向,可以使用角度或者关键字来设置</p>
+	<ul>
+		<li>角度单位来指定方向</li>
+		<li>to left: 设置渐变: 从右到左, == 70deg</li>
+		<li>to right: 设置渐变从左到右, == 90deg</li>
+		<li>to top: 设置渐变从该上到下, == 0deg</li>
+		<li>to bottom: 设置渐变从上到下. == 180deg. 默认值</li>
+	</ul>
+	<p>color: 指定起至颜色</p>
+	<p>length | percentage: 用百分比指定起止色位置.</p>
+	<h4>用线性渐变创建图像.</h4>
+	<p>如果想创建以对角线方式渐变的图像，可以使用 to top left 这样的多关键字方式来实现。</p>
+	<pre>
+默认渐变: linear-gradient(#fff 10%, #333 40%, #233);
+设置方向: linear-gradient(to left right, #666, #233, #888);
+设置角度: linear-gradient(230deg, #456, #789 50%, #321);
+	</pre>
+	<p>每个颜色后不设置百分比起止色位置, 则默认50%</p>
+	<div class="box">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</div>
+	<mark>仅支持IE10+ 其他浏览器需要 hack</mark>
+	<a href="http://msdn.microsoft.com/en-us/library/ms532997(VS.85,loband).aspx">IE6-9私有实现方案</a>
+
+	<h3>radial-gradient()</h3>
+	<h4>取值: </h4>
+	<p>position, 用来取定圆心位置. 如果提供2个参数，第一个表示横坐标，第二个表示纵坐标；如果只提供一个，第二值默认为50%，即center</p>
+	<ul>
+		<li>百分比: 指定径向渐变圆心的 横/纵 坐标. 可以为负值.</li>
+		<li>用长度值: 指定径向渐变圆心的 横/纵 坐标. 可以为负值.</li>
+		<li>top: 指定顶部为径向渐变圆心的 纵 坐标</li>
+		<li>right: 指定右边为径向渐变圆心的 横 坐标</li>
+		<li>tottom: 设置底部为径向渐变圆心的 纵 坐标</li>
+		<li>left: 设置左边为径向渐变圆心的 横 坐标.</li>
+		<li>center: 设置中间为径向渐变的 横/纵 坐标</li>
+	</ul>
+	<p>shape 圆类型</p>
+	<ul>
+		<li>circle: 指定圆形的径向渐变</li>
+		<li>ellipse: 指定椭圆形的径向渐变</li>
+	</ul>
+	<p>size: circle | ellipse均接受的值.</p>
+	<ul>
+		<li>closest-side: 指定径向渐变的半径长度为从圆心到离圆心最远的边</li>
+		<li>closest-corner： 指定径向渐变的半径长度为从圆心到离圆心最近的角</li>
+		<li>farthest-side： 指定径向渐变的半径长度为从圆心到离圆心最远的边
+		</li>
+		<li>farthest-corner： 指定径向渐变的半径长度为从圆心到离圆心最远的角
+		</li>
+	</ul>
+	<p>circle 接受该值作为 size</p>
+	<span>length：用长度值指定正圆径向渐变的半径长度。不允许负值。</span>
+	<p>ellipse 接受该值作为 size</p>
+	<ul>
+		<li>length：用长度值指定椭圆径向渐变的横向或纵向半径长度。不允许负值。</li>
+		<li>percentage： 用百分比指定椭圆径向渐变的横向或纵向半径长度。不允许负值。</li>
+	</ul>
+	<p>color-stop 用于指定渐变的起止颜色：</p>
+	<ul>
+		<li>color： 指定颜色。 </li>
+		<li>length： 用长度值指定起止色位置。不允许负值</li>
+		<li>percentage： 用百分比指定起止色位置。不允许负值</li>
+	</ul>
+	<div class="radial">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</div>
+
+	<hr />
+	<h3>repeating-linear-gradient()</h3>
+	<p>重复的线性渐变创建图像</p>
+	<div class="repeating-l">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</div>
+
+
+	<hr />
+	<h3>repeating-radial-gradient()</h3>
+	<p>重复的径向渐变创建图像</p>
+	<div class="repeating-r">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</div>
+
+</body>
+
+</html>

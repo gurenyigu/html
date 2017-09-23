@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<base href="http://www.w3school.com.cn">
+	<title>选择器</title>
+	<style>
+		* {
+			font-weight: 600;
+			line-height: 1.3;
+		}
+		
+		h1+p {
+			color: red;
+		}
+		
+		.letter,
+		.line {
+			width: 200px;
+			border: 1px solid red;
+		}
+		
+		.letter::first-letter {
+			/*			line-height: 1;*/
+			/*			float: left;*/
+			font-size: 30px;
+		}
+		
+		.line::first-line {
+			color: #090;
+		}
+		
+		.before::before {
+			/*		这里设置绝对定位	 */
+			position: absolute;
+			background-color: aqua;
+			content: "浏览器支持::before.";
+			transition: all .2s ease-in;
+			display: block;
+		}
+		
+		.before:hover {
+			/* IE10	对before设置动画, 过渡等, 需要先设置空元素	*/
+		}
+		
+		.before:hover::before {
+			background-color: deepskyblue;
+			/*			display: none;*/
+			top: 7px;
+		}
+		
+		.after::after {
+			position: absolute;
+			background-color: dimgray;
+			content: "浏览器支持::after.";
+		}
+		
+		input::-webkit-input-placeholder {
+			color: red;
+		}
+		
+		input:-ms-input-placeholder {
+			color: green;
+		}
+		
+		input:-moz-placeholder {
+			color: pink;
+		}
+		
+		input::-moz-placeholder {
+			color: yellow;
+		}
+		
+		.selection::-moz-selection {
+			background: #000;
+			color: #f00;
+		}
+		
+		.selection::selection {
+			background: #000;
+			color: #f00;
+		}
+
+	</style>
+</head>
+
+<body>
+	<p>ID 与 Class 名称区分大小写</p>
+	<ol>
+		<li>
+			<h3>通配选择器(universal selector), *.与任何元素匹配</h3>
+		</li>
+		<li>
+			<h3>元素选择器. W3C标准中也称类型选择器(type selector)</h3>
+		</li>
+		<li>
+			<h3>交集选择器, 使用 , 号隔开.创建相同样式.</h3>
+		</li>
+		<li>
+			<h3>类选择器. 在标签中进行声明, 使用 .className 进行选择.</h3>
+			<ul>
+				<li>表示所有的拥有相同类的元素: *.className == .className</li>
+				<li>结合元素选择器, 表示拥有类名为: className的相同tag元素: tag.className</li>
+				<li>多类选择器, 表示同时拥有指定的多个类的元素: .className1.className2</li>
+				<mark>IE7 前不能正确处理多类选择器</mark>
+			</ul>
+		</li>
+		<li>
+			<h3>ID选择器. 在标签中声明, 使用 #id 进行选择:</h3>
+			<ul>
+				<li>首先它可以像 class 一样, 忽略通配符. </li>
+				<li>与 class 不同, 子啊HTML文档中, id选择器名称只可以使用一次.</li>
+				<li>一个标签不允许多个id.</li>
+				<li>所以也就不存在与标签结合 或 多id 选择器</li>
+			</ul>
+		</li>
+		<li>
+			<h3>属性选择器. 根据元素的属性及属性值来选择元素:</h3>
+			<mark>任何属性都可以使用这些选择器. CSS2 引用. 注意兼容性.</mark>
+			<h3>根据属性</h3>
+			<ul>
+				<li>表示所有拥有title属性的标签: *[title]</li>
+				<li>表示拥有title属性的tag标签: tag[title]</li>
+				<li>表示根据同时拥有多个属性的tag标签: tag[href][title]</li>
+			</ul>
+			<h3>根据属性 属性值</h3>
+			<ul>
+				<li>同时拥有这两个属性与属性值的tag标签: tag[href="www.baidu.com"][title="baidu"]</li>
+				<li>注意: 使用这种方法属性与属性值要完全匹配(顺序, 格式, 大小写).例如:
+					<br /> &lt;p class="a b"&gt;&lt;/p&gt;
+					<br /> p[class="a b"]
+				</li>
+				<li>根据部分属性值选择, ~: tag[class~="className1"]</li>
+			</ul>
+
+			<h3>子串匹配属性选择器: (他是CSS2完成发布后的(算CSS3), 支持现代浏览器, IE7+) </h3>
+
+			<table border="1" cellpadding="10">
+				<tbody>
+					<tr>
+						<th>类型</th>
+						<th>描述</th>
+					</tr>
+
+					<tr>
+						<td>[abc^="def"]</td>
+						<td>选择 abc 属性值以 "def" 开头的所有元素</td>
+					</tr>
+
+					<tr>
+						<td>[abc$="def"]</td>
+						<td>选择 abc 属性值以 "def" 结尾的所有元素</td>
+					</tr>
+
+					<tr>
+						<td>[abc*="def"]</td>
+						<td>选择 abc 属性值中包含子串 "def" 的所有元素</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>特定属性选择器: </h3>
+			<p lang="zh-en">*[lang|="en"] 此规则将会选择lang属性等于en 或以 en- 开头的所有属性.</p>
+		</li>
+		<li>
+			<h3>后代选择器(descendant selector)又成为包含选择器, 选择作为某元素后代的元素</h3>
+			<p>例如: h1 p {} 对h1的所有后代 p标签进行定义样式</p>
+
+			<h3>语法理解</h3>
+			<p>语法解释 在后代选择器中，规则左边的选择器一端包括两个或多个用空格分隔的选择器。选择器之间的空格是一种结合符（combinator）。每个空格结合符可以解释为“... 在 ... 找到”、“... 作为 ... 的一部分”、“... 作为 ... 的后代”，但是要求必须从右向左读选择器。<br /> 因此，h1 em 选择器可以解释为 “作为 h1 元素后代的任何 em 元素”。如果要从左向右读选择器，可以换成以下说法：“包含 em 的所有 h1 会把以下样式应用到该 em”。</p>
+		</li>
+		<li>
+			<h3>子元素选择器(Child selectors).只能选择作为某元素子元素的元素.</h3>
+			<p>如果向精准的选择某个元素的子元素. 而不是任意层数嵌套的后代元素. h1 &gt; strong </p>
+			<p>语法: 子选择器使用了 &gt; 符号(子结合符). 子结合符两边有空格穿插是允许的.</p>
+			<h3>结合后代选择器与子选择器: table.h3 td &gt; p</h3>
+			<p>解释: 首先必须是 table元素并且包含class: h3. 且其后代 td 的子元素 p 规定样式</p>
+		</li>
+		<li>
+			<h3>相邻选择器(Adjacent sibling selector) 可选择
+				<mark>紧接</mark>元素后的元素, 且二者有相同父元素.</h3>
+			<p>例如: h1 + p 应用样式成立的条件是, p 紧接在h1 后. 且两个父元素相同.</p>
+			<p>语法解释: 相邻兄弟选择器使用了 (+) 号, 即相邻兄弟结合符(Adjacent sibling combinator). 此结合符号两边允许有空格</p>
+			<h3>结合其他选择器与兄弟选择器: html > body table + ul </h3>
+			<p>解释: html 的子类 body 中 table 的 相邻兄弟 ul 标签</p>
+		</li>
+		<li>
+			<h3>兄弟选择器 可选择所有符合条件的 具有相同父元素的元素.</h3>
+			<p>例如: h1 ~ p 将应用在h1 同父级的所有 p 元素中.</p>
+			<p>语法解释: 相邻兄弟选择器使用了 (~) 号, 此符号周围同样允许有空格.</p>
+			<h3>结合其他选择器: .className + table tbody > tr ~ tr</h3>
+			<p>解释: .class 的相邻table 元素 后代元素 tbody 中的子类 tr 其所有兄弟进行样式声明. (第一个tr将不具有样式)</p>
+		</li>
+		<li>
+			<h3>伪类选择器(Pseudo-classes). 用于向某些选择器添加特殊效果.</h3>
+			<table border="1" cellpadding="10">
+				<tbody>
+					<tr>
+						<th style="width:30%;">属性</th>
+						<th style="width:65%;">描述</th>
+						<th style="width:5%;">CSS</th>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_link.asp">:link</a></td>
+						<td>向未被访问的链接添加样式。</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_visited.asp">:visited</a></td>
+						<td>向已被访问的链接添加样式。</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_hover.asp">:hover</a></td>
+						<td>当鼠标悬浮在元素上方时，向元素添加样式。</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_active.asp">:active</a></td>
+						<td>向被激活的元素添加样式。</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_focus.asp">:focus</a></td>
+						<td>向拥有键盘输入焦点的元素添加样式。</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_first-child.asp">tag:first-child</a></td>
+						<td>向任意元素的第一个tag元素添加样式。
+							<p> 元素</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><a href="/cssref/pr_pseudo_lang.asp">:lang(zh)</a></td>
+						<td>向带有指定 lang 属性 zh 属性值 的元素添加样式。</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>:last-child</td>
+						<td>
+							<h4>匹配父元素的最后一个子元素</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>:only-child</td>
+						<td>
+							<h4>匹配父元素中仅有的一个子元素(若有多个,则一个也不匹配)</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:nth-child(n)</td>
+						<td>
+							<h4>匹配父元素中第n个子元素,但是如果该元素不是E,则样式无效.</h4>
+							<p>n的取值举例: 2n指奇数, 也可以是 even. 2n+1为偶数, 也可以是odd</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:nth-last-child(n)</td>
+						<td>
+							<h4>匹配父元素中倒数第n个子元素,但是如果该元素不是E,则样式无效.</h4>
+							<p>n是一个乘法因子</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:first-of-type</td>
+						<td>
+							<h4>匹配E元素后第一个同父元素的兄弟元素E</h4>
+							<p>要使该属性生效，E元素必须是某个元素的子元素，E的父元素最高是html，即E可以是html的子元素，也就是说E可以是body</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:last-of-type</td>
+						<td>
+							<h4>匹配E元素后最后第一个同父元素的兄弟元素E</h4>
+							<p>该选择符总是能命中父元素的倒数第1个为E的子元素，不论倒数第1个子元素是否为E</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:only-of-type</td>
+						<td>
+							<h4>匹配同类型中的唯一的一个同级兄弟元素E</h4>
+							<p>该选择符总是能命中父元素的唯一同类型子元素E，不论该元素的位置(其元素本身)</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:nth-of-type(n)</td>
+						<td>
+							<h4>匹配同类型中的第n个兄弟元素E</h4>
+							<p>该选择符总是能命中父元素的第n个为E的子元素</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:nth-last-of-type(n)</td>
+						<td>
+							<h4>匹配同类型的倒数第n个同级兄弟元素E</h4>
+							<p>该选择符总是能命中父元素的倒数第n个为E的子元素, 除非n不再范围内</p>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>:not(s)</td>
+						<td>
+							<h4>匹配不含有 s 选择符的元素</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:empty</td>
+						<td>
+							<h4>匹配没有任何子元素(包括text节点)的元素E</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:checked</td>
+						<td>
+							<h4>匹配用户界面上处于选中状态的元素E(input type为redio checkbox时)</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:enabled</td>
+						<td>
+							<h4>匹配用户界面上处于可用状态的元素E(input 在disabled属性时不可用)</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:disabled</td>
+						<td>
+							<h4>匹配用户界面上处于禁用状态的元素E(input 在disabled属性时不可用)</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>E:target</td>
+						<td>
+							<h4>匹配 有相关URL指向的E元素。</h4>
+							<p>解释：URL后面跟锚点#，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)，:target选择器用于选取当前活动的目标元素</p>
+							<a href="http://www.css88.com/book/css/selectors/pseudo-classes/target.htm#panel1">这里有个例子</a>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+					<tr>
+						<td>:root</td>
+						<td>
+							<h4>匹配元素的根元素. 在HTML中, 根元素永远是HTML</h4>
+						</td>
+						<td style="color:firebrick;">3(IE8+)</td>
+					</tr>
+				</tbody>
+			</table>
+		</li>
+		<li>
+			<h3>伪元素(Pseudo-elements)</h3>
+			<p>CSS伪元素用于向某些选择器设置特殊效果</p>
+			<p>在CSS3中, 将伪对象选择符 前面的单个冒号修改为双冒号. 以此来区分伪类</p>
+			<table border="1" cellpadding="10">
+				<tbody>
+					<tr>
+						<th>伪元素</th>
+						<th>描述</th>
+						<th>应用</th>
+						<th>支持(具体查看标准)</th>
+					</tr>
+					<tr>
+						<td>::first-letter</td>
+						<td>
+							<h4>设置对象内的第一个字符的样式</h4> <mark>此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。</mark>
+							<p>该伪类常被用来配合font-size属性和float属性制作首字下沉效果。</p>
+							<p>IE6在使用该选择符时有个显式的BUG：选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行。同时还存在该BUG的选择符包括：E:first-line</p>
+						</td>
+						<td>
+							<p class="letter">震惊, UC震惊社震惊了全世界, 太恐怖了!这么恐怖是为什么呢, B栈来揭晓这些答案.</p>
+						</td>
+						<td>IE6+</td>
+					</tr>
+					<tr>
+						<td>::first-line</td>
+						<td>
+							<h4>设置对象内的第一行的样式</h4> <mark>此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。</mark>
+							<p>该伪类常被用来配合font-size属性和float属性制作首字下沉效果。</p>
+							<p>IE6在使用该选择符时有个显式的BUG：选择符与包含规则的花括号之间不能紧挨着，需留有空格或换行。</p>
+						</td>
+						<td>
+							<div class="line">震惊, UC震惊社震惊了全世界,太恐怖了!这么恐怖是为什么呢, B栈来揭晓这些答案.</div>
+						</td>
+						<td>IE6+</td>
+					</tr>
+					<tr>
+						<td>::before</td>
+						<td>
+							<h4>设置在对象前(依据对象树的逻辑结构)发生的内容.用来和content属性一起使用, 并且必须定义content属性.</h4>
+						</td>
+						<td style="position: relative;">
+							<div class="before">在这里设置 ::before 不支持则显示这行字</div>
+						</td>
+						<td>IE8+</td>
+					</tr>
+					<tr>
+						<td>::after</td>
+						<td>
+							<h4>设置在对象后(依据对象树的逻辑结构)发生的内容.用来和content属性一起使用, 并且必须定义content属性.</h4>
+						</td>
+						<td>
+							<div class="after">在这里设置 ::after 不支持则显示这行字</div>
+						</td>
+						<td>IE8+</td>
+					</tr>
+					<tr>
+						<td>CSS3: ::placeholder</td>
+						<td>
+							<h4>设置对象文字占位符的样式</h4>
+							<p>::placeholder 伪元素用于控制表单输入框占位符的外观，它允许开发者/设计师改变文字占位符的样式，默认的文字占位符为浅灰色。<br> 当表单背景色为类似的颜色时它可能效果并不是很明显，那么就可以使用这个伪元素来改变文字占位符的颜色。<br> 需要注意的是，除了Firefox是 ::[prefix]placeholder，其他浏览器都是使用 ::[prefix]input-placeholder <br> Firefox支持该伪元素使用text-overflow属性来处理溢出问题。
+							</p>
+						</td>
+						<td>
+							<pre>
+&lt;input type="text" placeholder="占位符" /&gt;
+							
+input::-webkit-input-placeholder {
+	color: red;
+}
+input:-ms-input-placeholder { // IE10+
+	color: green;
+}
+input:-moz-placeholder { // Firefox4-18
+	color: pink;
+}
+input::-moz-placeholder { // Firefox19+
+	color: yellow;
+}
+							</pre>
+							<input type="text" placeholder="占位符" />
+						</td>
+						<td><a href="http://www.css88.com/book/css/selectors/pseudo-element/placeholder.htm">查看支持</a></td>
+					</tr>
+					<tr>
+						<td>CSS3: ::selection</td>
+						<td>
+							<h4>设置对象被选择时的样式。</h4>
+							<p>需要注意的是，::selection只能定义被选择时的background-color，color及text-shadow(IE11尚不支持定义该属性)</p>
+						</td>
+						<td>
+							<p class="selection">选中这段文本. 查看效果</p>
+						</td>
+						<td>IE8+</td>
+					</tr>
+				</tbody>
+			</table>
+		</li>
+	</ol>
+</body>
+
+</html>

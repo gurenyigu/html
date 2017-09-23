@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+	<meta charset="utf-8" />
+	<title>counters()函数_CSS参考手册_web前端开发参考手册系列</title>
+	<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+	<style>
+		ol {
+			margin: 0;
+			padding: 0 0 0 2em;
+			list-style: none;
+			counter-reset: item;
+		}
+		
+		li:before {
+			counter-increment: item;
+			content: counters(item, ".");
+			color: #f00;
+		}
+		
+		.wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		
+		.wrapper>div {
+			border: 1px solid;
+		}
+		
+		.one {
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+			position: static;
+			top: 10px;
+			left: 100px;
+			background-color: aliceblue;
+		}
+		
+		.two {
+			width: 50px;
+			height: 50px;
+			border: 1px solid;
+			background-color: dimgrey;
+			top: -5px;
+			left: -60px;
+			position: absolute;
+		}
+		
+		.three {
+			width: 70px;
+			height: 200px;
+			position: sticky;
+			top: 0px;
+			/*			left: 30px;*/
+			background-color: firebrick;
+		}
+		
+		.four {
+			position: absolute;
+			top: 10px;
+			left: 20px;
+		}
+		
+		.trans {
+			transform: rotateX(10deg);
+			height: 1000px;
+			border: 1px solid;
+			/*			overflow: scroll;*/
+		}
+		
+		.a {
+			height: 100px;
+		}
+
+	</style>
+</head>
+
+<body>
+
+
+	<ol class="test">
+		<li>Node
+			<ol>
+				<li>Node
+					<ol>
+						<li>Node</li>
+						<li>Node</li>
+						<li>Node</li>
+					</ol>
+				</li>
+				<li>Node</li>
+			</ol>
+		</li>
+		<li>Node</li>
+		<li>Node</li>
+	</ol>
+
+
+	<div class="three">
+		<div class="four">fdsfsda</div>
+	</div>
+
+	<div class="one">
+		<div class="two"></div>
+	</div>
+	<div class="trans">
+		<div class="a"></div>
+
+	</div>
+
+	<div class="wrapper">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>层级</title>
+	<style>
+		.box {
+			list-style: none;
+			position: relative;
+		}
+		
+		.box li {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+		}
+		
+		.box li:nth-child(1) {
+			background-color: aqua;
+			z-index: -1;
+			top: -20px;
+			left: 10px;
+		}
+		
+		.box li:nth-child(2) {
+			background-color: darkkhaki;
+			z-index: auto;
+			top: -10px;
+			left: 20px;
+		}
+		
+		.box li:nth-child(3) {
+			background-color: forestgreen;
+			z-index: 1;
+			top: 15px;
+			left: 35px;
+		}
+		
+		.box li:nth-child(4) {
+			background-color: dodgerblue;
+			z-index: 2;
+			top: 25px;
+			left: 45px;
+		}
+		
+		.box li:nth-child(5) {
+			background-color: darkorchid;
+			z-index: 4;
+			top: 40px;
+			left: 60px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h3>z-index</h3>
+	<p>设置对象的层叠顺序. 必须是定位元素.(属性值static外)</p>
+	<ul>
+		<li>auto: 元素当前在层叠上下文中的层叠级别是0.</li>
+		<li>integer: 用整数来定义堆叠级别. 可以是负值.</li>
+	</ul>
+
+	<ul class="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+
+</html>

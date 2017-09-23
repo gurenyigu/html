@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>文本</title>
+</head>
+
+<body>
+	<h3>inherit</h3>
+	<h4>该值 可以使属性继承祖先设置.(IE7+)</h4>
+	<p>inherit属于CSS-wide关键字，这表示所有的属性都可以接受该值</p>
+	<pre>
+div {
+  position: relative;
+}
+
+div a {
+  position: inherit;
+}
+	</pre>
+
+	<hr />
+	<h3>string</h3>
+	<h4>字符串(含转义字符串)</h4>
+	<p>字符串可以由单/双引号包裹</p>
+	<p>转义字符由 \ 声明, 如: \"</p>
+
+	<hr />
+	<h2>URL</h2>
+	<p>是对一个资源的指针, 在网页上提供一个资源地址.</p>
+	<p>由于历史原因, 可以对url不加引号: </p>
+	<pre>
+background-image: url(xx.png) | url("xx.png");
+	</pre>
+
+	<hr />
+
+	<h3>自定义取值 identifier</h3>
+	<h4>使用用户定义表示名作为组件取值</h4>
+	<p>定义的标识 区分大小写, 不可以使用CSS中的占用词</p>
+	<pre>
+/* 场景:  */
+@keyframes onemove {
+...
+}
+	</pre>
+
+	<hr />
+	<h2>CSS3: </h2>
+	<h3>initial</h3>
+	<h4>恢复属性初始默认值(IE不支持)</h4>
+	<p>initial属于CSS-wide关键字，这表示所有的属性都可以接受该值</p>
+	<pre>
+ul {
+  list-style: none;
+}
+.news-list {
+  list-style: initial;
+}
+/* ul会被reset掉list-style，如果你想某个地方需要UA初始定义，那么就可以直接设置为initial  */
+	</pre>
+
+	<hr />
+	<h3>unset</h3>
+	<h4>擦除属性声明(支持不好)</h4>
+	<p>一个属性定义了unset值，如果该属性是默认继承属性，该值等同于inherit，如果该属性是非继承属性，该值等同于initial unset属于CSS-wide关键字，这表示所有的属性都可以接受该值
+	</p>
+</body>
+
+</html>
