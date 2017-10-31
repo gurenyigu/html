@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>字体</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>继承性</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>font</td>
+                <td>css1/2</td>
+                <td>有</td>
+                <td>复合属性。设置或检索对象中的文本的特性
+                    <pre>
+                取值:
+                    css1 : font-style 
+                           font-variant 
+                           font-weight 
+                           font-size 
+                           line-height 
+                           font-family 
+                    css2 : caption(使用有标题的系统控件的文本字体 如按钮 菜单等) 
+                           icon(使用图标标签的字体) 
+                           menu(使用菜单的字体) 
+                           message-box(使用信息对话框的文本字体) 
+                           small-caption(使用小控件的字体) 
+                           status-bar(使用窗口状态栏的字体)
+                </pre>
+                    <h4>使用css1声明必须按照上面的顺序，且 font-size font-family 是不可忽视的。每个参数的仅允许一个值。忽略的将使用其参数对应的独立属性的默认值.</h4>
+                </td>
+            </tr>
+            <tr>
+                <td>font-style</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象中的字体样式
+                    <br />
+                    <h4>取值: </h4>
+                    <pre>
+                normal: 指定文本字体样式为正常字体.
+                italic: 指定文本字体样式为斜体。对于没有设计斜体的特殊字体，如果要使用斜体外观将应用oblique.
+                oblique: 指定文本字体样式为斜体的字体。人为的使用文字斜体，而不是去选取字体中的斜体。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>font-variant</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象的文本是否为小型的大写字母
+                    <br />
+                    <h4>取值: </h4>
+                    <pre>
+                normal: 正常的字体。
+                small-caps: 小型的大写字母字体.
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>font-weight</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象的文本字体的粗细
+                    <br />
+                    <h4>取值: </h4>
+                    <pre>
+                normal: 正常的字体。相当于数字值 400
+                bold:  粗体。相当于数字值 700
+                bolder: 定义比继承值更重的值。
+                lighter: 定义比继承值更轻的值。
+                数字值: 范围为 100 200 300 400 500 600 700 800 900
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>font-size</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象的字体尺寸
+                    <br />
+                    <h4>取值: </h4>
+                    <pre>
+                absolute-size: 根据对象字号进行调节。以medium作为基础参照，
+                               xx-small相当于medium3/5(h6), x-small:3/4, small:8/9(h5),medium:1(h4),large:6/5(h3),x-large:3/2(h2),xx-large:2/1(h1).
+                relative-size: 相对于父对象中字号进行相对调节。使用成比例的em单位计算。
+                length: 用长度值指定文字大小。不允许负值.
+                percentage: 用百分比指定文字大小。其百分比取值是基于父对象中字体的尺寸。不允许负值。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>font-family</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象中文本的字体名称序列
+                    <br />
+                    <h4>取值: </h4>
+                    family-name: 字体名称。按优先顺序排列。以逗号隔开。如果字体名称包含空格或中文，则应按使用引号括起来.
+                    <br /> generic-family: 字体序列名称.
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>font-stretch</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索对象中的问题是否横向拉伸变形
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>font-size-adjust</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索小写字符x的高度与对象文本字号的比率</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>溢出</title>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo {
+            width: auto;
+            list-style: none;
+        }
+
+        .demo>li {
+            float: left;
+            width: 24%;
+            height: 120px;
+            border: 2px #fae solid;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+            visibility: hidden;
+            overflow: hidden;
+        }
+
+        .demo>li>div {
+            font-size: 20px;
+            background-color: aquamarine;
+            height: 50%;
+        }
+
+        .one {
+            overflow: visible;
+        }
+
+        .two {
+            overflow: hidden;
+        }
+
+        .three {
+            overflow: scroll;
+        }
+
+        .four {
+            overflow: inherit;
+        }
+
+    </style>
+</head>
+
+<body>
+    <table border='1' cellpadding="10">
+        <caption>overflow属性指定当前内容溢出其块级容器时，是否剪辑内容，显示滚动条或者显示溢出的内容</caption>
+        <tbody>
+            <tr>
+                <th>值 (IE6+)</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>visible</td>
+                <td>默认值，内容不会被修剪，会呈现在元素框之外</td>
+            </tr>
+            <tr>
+                <td>hidden</td>
+                <td>内容会被修剪，并且其余内容不可见</td>
+            </tr>
+            <tr>
+                <td>scroll</td>
+                <td>内容会被修剪，浏览器会显示滚动条以便查看其余内容</td>
+            </tr>
+            <tr>
+                <td>auto</td>
+                <td>由浏览器定夺，如果内容被修剪，就会显示滚动条</td>
+            </tr>
+            <tr>
+                <td>规定从父元素继承overflow属性的值</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul class="demo clearfix">
+        <li>
+            <div class="one">
+                这段文本将溢出承载他的盒子。因为属性设置为 visible. 可见的
+            </div>
+        </li>
+        <li>
+            <div class="two">
+                这段文本的溢出部分将隐藏，不可见。属性设置为 hidden. 隐藏的
+            </div>
+        </li>
+        <li>
+            <div class="three">
+                这段文本溢出部分将隐藏，并显示滚动条。属性设置为 scroll.
+            </div>
+        </li>
+        <li>
+            <div class="four">
+                这段文本继承父元素的 overflow属性. inherit
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

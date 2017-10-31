@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多列</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>columns</td>
+                <td>css3(IE10+)</td>
+                <td>复合属性.设置或检索对象的列数和每列的宽度。
+                    <h4>取值: </h4>
+                    <pre>
+                column-width: 设置或检索对象每列的宽度
+                column-count: 设置或检索对象的列数
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-width</td>
+                <td>css3</td>
+                <td>设置或检索对象每列的宽度
+                    <h4>取值: </h4>
+                    <pre>
+                length: 用长度值来定义列宽。不允许负值
+                auto: 根据 'column-count' 自定分配宽度
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-count</td>
+                <td>css3</td>
+                <td>设置或检索对象的列数
+                    <h4>取值: </h4>
+                    <pre>
+                integer: 用整数值来定义列数。不允许负值
+                auto: 根据 'column-width' 自定义分配高度
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-gap</td>
+                <td>css3</td>
+                <td>设置或检索对象的列与列之间的间隙
+                    <h4>取值: </h4>
+                    <pre>
+                length: 用长度值来定义列与列之间的间隙。不允许负值
+                normal: 与 'font-size' 大小相同。假设该对象的font-size为16px,则normal值为16px,类推
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-rule</td>
+                <td>css3</td>
+                <td>复合属性.设置或检索对象列与列之间的边框。
+                    <h4>取值: </h4>
+                    <pre>
+                column-rule-width: 设置或检索对象的列与列之间的边框厚度
+                column-rule-style: 设置或检索对象的列与列之间的边框样式
+                column-rule-color: 设置或检索对线的列与列之间的边框颜色
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-rule-width</td>
+                <td>css3</td>
+                <td>设置或检索对象的列与列之间的边框厚度
+                    <h4>取值: </h4>
+                    <pre>
+                length: 用长度值来定义边框的厚度。不允许负值
+                medium: 定义默认厚度的边框
+                thin: 定义比默认厚度细的边框
+                thick: 定义比默认厚度粗的边框
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-rule-style</td>
+                <td>css3</td>
+                <td>设置或检索对象的列与列之间的边框样式
+                    <h4>取值： </h4>
+                    <pre>
+                none: 无轮廓.column-rule-color 与 column-rule-width 将被忽视
+                hidden: 隐藏边框
+                dotted: 点状轮廓
+                dashed: 虚线轮廓
+                solid: 实线轮廓
+                double: 双线轮廓
+                groove: 3D凹槽轮廓
+                ridge: 3D凸槽轮廓 
+                inset: 3D凹边轮廓
+                outset: 3D凸边轮廓
+                
+                如果 'column-rule-width' 等于0 本属性将失去作用
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-rule-color</td>
+                <td>css3</td>
+                <td>设置或检索对象的列与列之间的边框颜色
+                    <h4>取值: </h4>
+                    <pre>
+                    color: 指定颜色
+                    
+                    如果 'column-rule-width' 等于0 或 'column-rule-style' 设置为none | hidden 本属性将被忽略
+                   </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-span</td>
+                <td>css3</td>
+                <td>设置或检索对象所有列的高度是否一致
+                    <h4>取值: </h4>
+                    <pre>
+                none: 不跨列
+                all: 横跨所有列
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-fill</td>
+                <td>css3</td>
+                <td>设置或检索对象元素是否横跨所有列
+                    <h4>取值: </h4>
+                    <pre>
+                auto: 列高度自适应内容
+                balance: 所有列的高度以其中最高的一列统一
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-break-before</td>
+                <td>css3</td>
+                <td>设置或检索对象之前是否断行
+                    <h4>取值: </h4>
+                    <pre>
+                    auto: 即不勉强也不禁止在元素之前断行并产生新列
+                    always: 总是在元素之前断行并产生新列
+                    avoid: 避免在元素之前断行并产生新列
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-break-after</td>
+                <td>css3</td>
+                <td>设置或检索对象之后是否断行
+                    <h4>取值: </h4>
+                    <pre>
+                auto： 既不强迫也不禁止在元素之后断行并产生新列
+                always： 总是在元素之后断行并产生新列
+                avoid： 避免在元素之后断行并产生新列
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>column-break-inside</td>
+                <td>css3</td>
+                <td>设置或检索对象内部是否断行
+                    <h4>取值: </h4>
+                    <pre>
+                auto： 既不强迫也不禁止在元素内部断行并产生新列
+                avoid： 避免在元素内部断行并产生新列
+                </pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>内容</title>
+    <style>
+        q:lang(en) {
+            quotes: '[' ']' '<' '>';
+        }
+
+        q:lang(zh) {
+            quotes: "《" "》" '"' '"';
+        }
+
+    </style>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本(IE8+)</th>
+                <th>继承</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>content</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>用来和:after及:before伪元素一起使用，在对象前或后显示内容</td>
+            </tr>
+            <tr>
+                <td>counter-increment</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>设定当一个selector发生时计数器增加的值
+                    <h4>取值: </h4>
+                    <pre>
+                none: 阻止计数器增加
+                "identifier": 定义一个或多个将被增加的selector id class
+                "integer": 定义计算器每次增加的数值，可以为负值，默认值为1;
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>counter-reset</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>将指定selector的计数器复位</td>
+            </tr>
+            <tr>
+                <td>quotes</td>
+                <td>css2</td>
+                <td>有</td>
+                <td>设置或检索对象内使用的嵌套标记
+                    <h4>取值: </h4>
+                    <pre>
+                   none: content属性的open-quote和close-quote值将不会生成任何标记.
+                   "string": 定义content属性的open-quote和close-quote值的标记,2个为一组 
+                   </pre>
+                    <p lang="en"><q>quote 1 <q>quote 2</q> quote 1</q>
+                    </p>
+                    <p lang="zh"><q>嵌套 外层 <q>嵌套内层</q> 嵌套 外层</q>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>clear</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>值</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>none</td>
+                <td>元素不会向下移动清除之前的浮动</td>
+            </tr>
+            <tr>
+                <td>left</td>
+                <td>元素被向下移动用于清除之前的左浮动</td>
+            </tr>
+            <tr>
+                <td>right</td>
+                <td>元素被向下移动用于清除之前的右浮动</td>
+            </tr>
+            <tr>
+                <td>both</td>
+                <td>元素被向下移动用于清除之前的左右浮动</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>如果想要一个元素将所有浮动元素包含在内.可以通过设置类: </h3>
+    <pre>
+    .clearfix::before, .clearfix::after {
+      overflow: hidden;
+      display: table;
+      visibility: hidden;
+      content: "";
+      clear: both;    
+    }
+    
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文本装饰</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>继承</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>text-decoration</td>
+                <td>css1/3</td>
+                <td>无</td>
+                <td>复合属性(不支持IE)。检索或设置对象中的文本的装饰
+                    <br />所有浏览器均支持CSS2.1中的 ' text-decoration ' 属性，在CSS3中，该属性定义被移植到其新的分解属性 ' text-decoration-line ' 上；
+                    <h4>取值: </h4>
+                    <pre>
+                    text-decoration-line: 指定文本装饰的种类。
+                    text-decoration-style: 指定文本装饰的样式
+                    text-decoration-color: 指定文本装饰的颜色
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>text-decoration-line</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>检索或设置对象中的文本装饰线条的位置
+                    <h4>取值: </h4>
+                    <pre>
+                none: 指定文字无装饰
+                underline: 指定文字的装饰是下划线
+                overline: 指定文字的装饰是上划线
+                line-through: 指定文字的装饰是贯穿线
+                <del>blink: 指定文字装饰是闪烁</del>
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>text-decoration-color</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>检索或设置对象中的文本装饰线条的颜色
+                    <h4>取值: </h4>
+                    <span>取值为 color. 指定线条的装饰色</span>
+                </td>
+            </tr>
+            <tr>
+                <td>text-decoration-style</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>检索或设置对象中的文本装饰线条的形状
+                    <h4>取值: </h4>
+                    <pre>
+                solid: 实线
+                double: 双线
+                dotted: 点状线条
+                wavy: 波浪线
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>text-shadow</td>
+                <td>css3(IE10+)</td>
+                <td>无</td>
+                <td>设置或检索对象中文本的文字是否拥有阴影及模糊效果
+                    <h4>取值: </h4>
+                    <pre>
+                none: 无阴影
+                length1: 第一个长度值用来设置对象的阴影水平偏移值。可以为负值
+                length2: 第二个长度值用来设置对象的阴影垂直偏移值。可以为负值
+                length3: 如果提供了第三个长度值则用来设置对象的阴影模糊值。不允许负值
+                color: 设置对象的阴影颜色.
+                </pre>
+                    <span>可以设置多组(三个长度+颜色)参数用间隔隔开，设置多组阴影效果</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

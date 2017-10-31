@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>书写模式</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>继承</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>direction</td>
+                <td>CSS2(IE6+)</td>
+                <td>有</td>
+                <td>检索或设置文本流的方向
+                    <h4>取值: </h4>
+                    <pre>
+                ltr: 文本流从左到右
+                rtl: 文本流从右到左
+                
+                当指定一个内联元素的 ' unicode-bidi ' 属性为normal时， ' direction ' 属性设置不影响bidi重排序，即其设置不生效。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>unicode-bidi</td>
+                <td>CSS2</td>
+                <td>无</td>
+                <td>用于同一个页面里存在从不同方向读进的文本显示。与 'direction' 属性一起使用</td>
+            </tr>
+            <tr>
+                <td>writing-mode</td>
+                <td>CSS3(IE6+)</td>
+                <td>设置或检索对象的内容块固有的书写方向
+                    <h4>取值: </h4>
+                    <pre>
+                horizontal-tb: 水平方向自上而下的书写方式
+                vertical-rl: 垂直方向自右而左的书写方式
+                vertival-lr: 垂直方向自左而右的书写方式。
+                </pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

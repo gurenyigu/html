@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户界面</title>
+    <style>
+        .test {
+            width: 400px;
+            border-collapse: collapse;
+            font: 14px/1.5 georgia, arial, serif, sans-serif;
+        }
+
+        .test td {
+            padding: 2px 10px;
+            border: 1px solid #ddd;
+        }
+
+        .test td:hover {
+            background: #eee;
+        }
+
+        .auto {
+            cursor: auto;
+        }
+
+        .default {
+            cursor: default;
+        }
+
+        .none {
+            cursor: none;
+        }
+
+        .context-menu {
+            cursor: context-menu;
+        }
+
+        .help {
+            cursor: help;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .progress {
+            cursor: progress;
+        }
+
+        .wait {
+            cursor: wait;
+        }
+
+        .cell {
+            cursor: cell;
+        }
+
+        .crosshair {
+            cursor: crosshair;
+        }
+
+        .text {
+            cursor: text;
+        }
+
+        .vertical-text {
+            cursor: vertical-text;
+        }
+
+        .alias {
+            cursor: alias;
+        }
+
+        .copy {
+            cursor: copy;
+        }
+
+        .move {
+            cursor: move;
+        }
+
+        .no-drop {
+            cursor: no-drop;
+        }
+
+        .not-allowed {
+            cursor: not-allowed;
+        }
+
+        .e-resize {
+            cursor: e-resize;
+        }
+
+        .n-resize {
+            cursor: n-resize;
+        }
+
+        .ne-resize {
+            cursor: ne-resize;
+        }
+
+        .nw-resize {
+            cursor: nw-resize;
+        }
+
+        .s-resize {
+            cursor: s-resize;
+        }
+
+        .se-resize {
+            cursor: se-resize;
+        }
+
+        .sw-resize {
+            cursor: sw-resize;
+        }
+
+        .w-resize {
+            cursor: w-resize;
+        }
+
+        .ew-resize {
+            cursor: ew-resize;
+        }
+
+        .ns-resize {
+            cursor: ns-resize;
+        }
+
+        .nesw-resize {
+            cursor: nesw-resize;
+        }
+
+        .nwse-resize {
+            cursor: nwse-resize;
+        }
+
+        .col-resize {
+            cursor: col-resize;
+        }
+
+        .row-resize {
+            cursor: row-resize;
+        }
+
+        .all-scroll {
+            cursor: all-scroll;
+        }
+
+        .zoom-in {
+            cursor: zoom-in;
+        }
+
+        .zoom-out {
+            cursor: zoom-out;
+        }
+
+        .url {
+            cursor: url(skin/cursor.gif),
+            url(skin/cursor.png),
+            url(skin/cursor.jpg),
+            pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>继承</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>appearance</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>设置或检索外观按照本地默认样式(实验性属性)</td>
+            </tr>
+            <tr>
+                <td>text-overflow</td>
+                <td>css3(IE6+)</td>
+                <td>无</td>
+                <td>当块容器overflow为非visible时，定义内联内容溢出其块容器是否截断或者添加(...)及自定义字符
+                    <h4>取值: </h4>
+                    <pre>
+                clip: 当内联内容溢出块容器时，将溢出部分裁剪掉.
+                ellipsis: 当内联内容溢出块容器时，将溢出部分替换为(...)
+                
+要使得 ' text-overflow ' 属性生效，块容器必须显式定义 ' overflow ' 为非visible值，同时显式或者隐式的定义 ' width ' 为非auto值， ' white-space ' 为nowrap值。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>outline</td>
+                <td>css2(IE8+)</td>
+                <td>无</td>
+                <td>复合属性。设置或检索对象外的线条轮廓
+                    <h4>取值: </h4>
+                    <pre>
+                outline-width: 指定轮廓边框的宽度
+                outline-style: 指定轮廓边框的样式
+                outline-color: 指定轮廓边框的颜色
+                
+                outline属性不占据布局空间，不会影响元素属性
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>outline-width</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>设置或检索对象外的线条轮廓的宽度
+                    <h4>取值: </h4>
+                    <pre>
+                length: 用长度值来定义轮廓的厚度。不允许负值
+                medium: 定义默认宽度的轮廓
+                thin: 定义比默认宽度细的轮廓
+                thick: 定义比默认宽度粗的轮廓
+                
+                此属性可能是非矩形。不允许拆分边定义.
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>outline-style</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>设置或检索对象外的线条轮廓的样式
+                    <h4>取值: </h4>
+                    <pre>
+                color: 自定颜色
+                invert: 使用背景色的反色。该参数值目前仅在IE及Opera下有效.
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>outline-color</td>
+                <td>css2</td>
+                <td>无</td>
+                <td>设置或检索对象外的线条轮廓颜色
+                    <h4>取值: </h4>
+                    <pre>
+                none: 无轮廓。与任何指定的 outline-width 值无关
+                dotted: 点状轮廓
+                dashed: 虚线轮廓
+                solid: 实现轮廓
+                double: 双线轮廓。两条单线与其今个的等于指定的 outline-width 值
+                groove: 3D凹槽轮廓
+                ridge: 3D凸槽轮廓
+                inset: 3D凹边轮廓
+                outset: 3D凸边轮廓
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>outline-offset</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>设置或检索对象外的线条轮廓偏移位置的数值.
+                    <h4>取值: </h4>
+                    <pre>
+                length: 用长度值来定义轮廓偏移。允许负值
+                
+                outline-offset是以border边界作为参考点的，从0开始，正值从border边界往外延，负值从border边界往里缩。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>cursor</td>
+                <td>css2</td>
+                <td>有</td>
+                <td>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状
+                    <h4>取值: </h4>
+                    <pre>
+                'url': 使用绝对或者相对地址引入外部图像作为光标形状
+                'url' 'x' 'y':通过x y两个值指定具体需要显示的图像位置。类似'background-position'
+                auto: 用户代理基于当前上下文决定光标形状
+                default: 当前浏览器的默认光标形状，默认为箭头 
+                none: 没有光标形状
+                等....
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>zomm</td>
+                <td>css3</td>
+                <td>有</td>
+                <td>设置或检索对象的缩放比例
+                    <h4>取值: </h4>
+                    <pre>
+                normal: 使用对象的实际尺寸
+                number: 用浮点数来定义缩放比例，不允许负值
+                percentage: 用百分比定义缩放比例。不允许负值
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>box-sizing</td>
+                <td>css3(IE8+)</td>
+                <td>无</td>
+                <td>设置或检索对象的缩放比例
+                    <h4>取值: </h4>
+                    <pre>
+                content-box: padding和border不被包含在定义width和height之内。
+                对象的实际宽度等于设置的width值和border、padding之和，即(Elemnet width = width + border + padding)
+                border-box: padding和border被包含在定义的width和height之内。
+                对象的实际宽度就等于设置的width值，及时定义有border和padding也不会改变对象的实际宽度，即(Element width = width)
+                
+                此属性表现为怪异模式下的盒子模型
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>resize</td>
+                <td>css3</td>
+                <td>无</td>
+                <td>设置或检索对象的盒子模型组成模式
+                    <h4>取值: </h4>
+                    <pre>
+                none: 不允许用户调整元素大小
+                both: 用户可以调节元素的宽度和高度
+                horizontal: 用户可以调节元素的宽度
+                vertical: 用户可以调节元素的高度
+                
+如果希望此属性生效，需要设置对象的overflow属性，值可以是auto hidden scroll
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>user-select(实验性功能)</td>
+                <td>css3(IE11+)</td>
+                <td>无</td>
+                <td>设置或检索是否允许用户选中文本</td>
+            </tr>
+            <tr>
+                <td>pointer-events</td>
+                <td>css3</td>
+                <td>有</td>
+                <td>设置或检索在何时成为属性事件的target
+                    <h4>取值: </h4>
+                    <pre>
+                auto: 与pointer-events属性为指定时的表现效果一致。在svg内容上与visiblepainted值相同
+                none: 元素用远不会成为鼠标事件的target。
+                但是，当其后代元素的pointer-event属性指定其他指时，鼠标时间可以指向后代元素，在这种情况下，鼠标事件将在捕获或冒泡阶段触发父元素事件监听器.
+                
+                其他值只能应用在SVG上.
+                
+使用pointer-events来阻止元素成为鼠标事件目标不一定意味着元素上的事件侦听器永不会触发。
+如果元素后代明确指定了pointer-events属性并允许其成为鼠标事件的目标，那么指向该元素的任何事件在事件传播过程中都将通过父元素，并以适当的方式触发其上的事件侦听器。
+当然位于屏幕上在父元素上但不在后代元素上的鼠标活动都不会被父元素和后代元素捕获（将会穿过父元素而指向位于其下面的元素）。
+                </pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="test">
+        <caption>cursor光标类型</caption>
+        <tbody>
+            <tr>
+                <td class="auto">auto</td>
+                <td class="default">default</td>
+                <td class="none">none</td>
+                <td class="context-menu">context-menu</td>
+                <td class="help">help</td>
+                <td class="pointer">pointer</td>
+                <td class="progress">progress</td>
+            </tr>
+            <tr>
+                <td class="wait">wait</td>
+                <td class="cell">cell</td>
+                <td class="crosshair">crosshair</td>
+                <td class="text">text</td>
+                <td class="vertical-text">vertical-text</td>
+                <td class="alias">alias</td>
+                <td class="copy">copy</td>
+            </tr>
+            <tr>
+                <td class="move">move</td>
+                <td class="no-drop">no-drop</td>
+                <td class="not-allowed">not-allowed</td>
+                <td class="e-resize">e-resize</td>
+                <td class="n-resize">n-resize</td>
+                <td class="ne-resize">ne-resize</td>
+                <td class="nw-resize">nw-resize</td>
+            </tr>
+            <tr>
+                <td class="s-resize">s-resize</td>
+                <td class="se-resize">se-resize</td>
+                <td class="sw-resize">sw-resize</td>
+                <td class="w-resize">w-resize</td>
+                <td class="ew-resize">ew-resize</td>
+                <td class="ns-resize">ns-resize</td>
+                <td class="nesw-resize">nesw-resize</td>
+            </tr>
+            <tr>
+                <td class="nwse-resize">nwse-resize</td>
+                <td class="col-resize">col-resize</td>
+                <td class="row-resize">row-resize</td>
+                <td class="all-scroll">all-scroll</td>
+                <td class="url">url</td>
+                <td class="zoom-in">zoom-in</td>
+                <td class="zoom-out">zoom-out</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>继承性</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>list-style</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>复合属性。设置列表项目相关内容
+                    <h4>取值: </h4>
+                    <pre>
+                list-style-type: 设置或检索对象的列表项所使用的预设标记
+                list-style-position: 设置或检索作为对象的列表项标记如何根据文本排列
+                list-style-image: 设置或检索作为对象的列表项标记的图像
+                
+需要注意的是，如果使用 ' list-style ' 复合属性，' list-style-image ' 属性必须放在最后，否则部分浏览器（包括所有的webkit/blink内核浏览器）将会解析出错。
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>list-style-image</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索作为对象的列表项标记的图像
+                    <h4>取值: </h4>
+                    <pre>
+                    none: 不指定图像，默认内容标记将被 list-style-type 代替 
+                    url: 使用绝对或相对地址指定列表项标记图像。如果图像地址无效，默认内容标记将被 list-style-type 代替
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>list-style-position</td>
+                <td>css1</td>
+                <td>有</td>
+                <td>设置或检索作为对象的列表项标记如何根据文本排列
+                    <h4>取值: </h4>
+                    <pre>
+                outside: 列表项目标记放置在文本以外，且环绕文本不根据标记对齐(默认)
+                inside: 列表项目标记放置在文本以内，且环绕文本根据标记对齐
+                </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>list-style-type</td>
+                <td>css1/2</td>
+                <td>有</td>
+                <td>设置或检索对象的列表项所使用的预设标记
+                    <h4>取值: </h4>
+                    <pre>
+                disc： 实心圆(CSS1)
+                circle： 空心圆(CSS1)
+                square： 实心方块(CSS1)
+                decimal： 阿拉伯数字(CSS1)
+                lower-roman： 小写罗马数字(CSS1)
+                upper-roman： 大写罗马数字(CSS1)
+                lower-alpha： 小写英文字母(CSS1)
+                upper-alpha： 大写英文字母(CSS1)
+                none： 不使用项目符号(CSS1)
+                armenian： 传统的亚美尼亚数字(CSS2)
+                cjk-ideographic： 浅白的表意数字(CSS2)
+                georgian： 传统的乔治数字(CSS2)
+                lower-greek： 基本的希腊小写字母(CSS2)
+                hebrew： 传统的希伯莱数字(CSS2)
+                hiragana： 日文平假名字符(CSS2)
+                hiragana-iroha： 日文平假名序号(CSS2)
+                katakana： 日文片假名字符(CSS2)
+                katakana-iroha： 日文片假名序号(CSS2)
+                lower-latin： 小写拉丁字母(CSS2)
+                upper-latin： 大写拉丁字母(CSS2)
+                </pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>边框</title>
+    <style>
+        .radius {
+            width: 0;
+            height: 0;
+            color: dodgerblue;
+            border: solid 50px;
+            border-radius: 5px 10px 15px 20px / 20px 15px 20px 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>border</td>
+                <td>css1</td>
+                <td>复合属性，设置对象边框的特性</td>
+            </tr>
+            <tr>
+                <td>border-top|left|bottom|right</td>
+                <td>css1</td>
+                <td>复合属性，设置对象的特性
+                    <br /> 设置单个边框的复合值
+                </td>
+            </tr>
+            <tr>
+                <td>border[-top|left|bottom|right]-width</td>
+                <td>css1</td>
+                <td>设置或检索边框宽度
+                    <br />如果border-style 设置为 none或hidden时，其值为0
+                </td>
+            </tr>
+            <tr>
+                <td>border[-top|left|bottom|right]-style</td>
+                <td>css1</td>
+                <td>设置或检索边框样式
+                    <br />
+                    <h4>取值:</h4>
+                    <ul>
+                        <li>none: 无轮廓。将忽略border-color,border-width计算值为0.除非轮廓为图像 border-image</li>
+                        <li>hidden: 隐藏边框.IE7及胰腺癌尚不支持</li>
+                        <li>dotted: 点状轮廓线.IE6下显示为dashed效果</li>
+                        <li>dashed: 虚线轮廓</li>
+                        <li>solid: 实线轮廓</li>
+                        <li>double: 双线轮廓</li>
+                        <li>groove: 3D凹槽轮廓</li>
+                        <li>ridge: 3D凸槽轮廓</li>
+                        <li>inset: 3D凹边轮廓</li>
+                        <li>outset: 3D凸边轮廓</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>border[-top|left|bottom|right]-color</td>
+                <td>css1</td>
+                <td>设置或检索边框颜色
+                    <br />当border-style设置为none或border-width等与0此属性将被忽略
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-radius</td>
+                <td>css3(IE9+)</td>
+                <td>设置或检索对象的圆角边框
+                    <br /> 设置圆角边框。做多接收八个值。中间用 / 分割。定义水平半径和垂直半径。值可以为长度或百分比。不允许负值。
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-top-left-radius</td>
+                <td>css3</td>
+                <td>设置或检索对象左上角的圆角边框
+                    <br />做多接受两个参数用空格分割。分别为水平半径和垂直半径。
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-top-right-radius</td>
+                <td>css3</td>
+                <td>设置或检索对象右上角的圆角边框</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-bottom-right-radius</td>
+                <td>css3</td>
+                <td>设置或检索对象右下角的圆角边框</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-bottom-left-radius</td>
+                <td>css3</td>
+                <td>设置或检索对象左下角的圆角边框</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>box-shadow</td>
+                <td>css3</td>
+                <td>设置或检索对象阴影
+                    <br />语法: box-shadow: none(无阴影) | 长度值1(设置对线的阴影水平偏移值，可以为负值) 长度值2(用来设置对象的阴影垂直偏移值，可以为负值) 长度值3(可选，如果提供设置对象的阴影模糊值。不允许负值) 长度值4(可选，提供了则设置对象的阴影外延值，可以为负值) [inset(提供啧设置阴影类型为内阴影。没有该值默认为外阴影.)]
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image</td>
+                <td>css3(IE11+)</td>
+                <td>设置或检索对象的边框样式使用图像来填充</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image-source</td>
+                <td>css3</td>
+                <td>设置或检索对象的边框是否用图像定义样式或图像来源路径</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image-slice</td>
+                <td>css3</td>
+                <td>设置或检索对象的边框背景图的分割方式</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image-width</td>
+                <td>css3</td>
+                <td>设置或检索对象的边框厚度</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image-outset</td>
+                <td>css3</td>
+                <td>设置或检索对象的边框背景图的扩展</td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>border-image-repeat</td>
+                <td>css3</td>
+                <td>设置或检索对象的边框背景图的平铺方式</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="radius"></div>
+</body>
+
+</html>

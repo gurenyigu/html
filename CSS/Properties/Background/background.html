@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>背景</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10">
+        <tbody>
+            <tr>
+                <th>属性</th>
+                <th>版本</th>
+                <td>描述</td>
+            </tr>
+            <tr>
+                <td>background</td>
+                <td>css1/3</td>
+                <td>复合属性。设置或检索对象的背景特性
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>background-color</td>
+                <td>css1</td>
+                <td>设置或检索对象的背景颜色</td>
+            </tr>
+            <tr>
+                <td>background-image</td>
+                <td>css1/3</td>
+                <td>设置或检索对象的背景图像
+                    <br />一个图像单位。如果设置了该属性建议同时设置一个颜色值，当图像不可用时使用。如果设置了多个背景(IE9+)，前面的会覆盖后面的.
+                </td>
+            </tr>
+            <tr>
+                <td>background-repeat</td>
+                <td>css1/3</td>
+                <td>设置或检索对象的背景图像如何铺排填充
+                    <br />提供两个参数(IE9+)，用于横向与纵向，如果提供一个则应用于横纵向.
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>repeat-x: 背景图像在横向上平铺</li>
+                        <li>repeat-y: 背景图像在纵向上平铺</li>
+                        <li>repeat: 背景图像在横向和纵向平铺</li>
+                        <li>no-repeat: 背景图像不平铺</li>
+                        <li style="color: #f60;">round(IE9+): 背景图像自动缩放到使用且填满整个容器</li>
+                        <li style="color: #f60;">space(IE9+): 背景图像以相同的间距平铺且填满整个容器或某个方向</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>background-attachment</td>
+                <td>css1/3</td>
+                <td>设置或检索对象的背景图像是随对象内容滚动还是固定的
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>fixed: 图像相对于窗口固定</li>
+                        <li>scroll: 背景图像相对于元素固定，也就是说当元素内容滚动时背景不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动.</li>
+                        <li style="color: #f60;">local(IE9+): 背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景总是要跟着内容</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>background-position</td>
+                <td>css1/3</td>
+                <td>设置或检索对象的背景图像位置
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>百分比或长度值，允许负值</li>
+                        <li>center: 背景图像横向和纵向居中</li>
+                        <li>left: 背景图像在横向上填充从左边开始</li>
+                        <li>right: 背景图像在横向上填充从右边开始</li>
+                        <li>top: 背景图像在纵向上填充从顶部开始</li>
+                        <li>bottom: 背景图像在纵向上填充从底部开始</li>
+                    </ul>
+                    <h4>默认: 0%,0%效果相当于left top</h4>
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>background-origin</td>
+                <td>css3(IE9+)</td>
+                <td>设置或检索对象的背景图像显示的原点
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>padding-box: 从padding区域(含padding)开始显示背景图像</li>
+                        <li>border-box: 从border区域(含border)开始显示背景图像</li>
+                        <li>content-box: 从content区域开始显示背景图像</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>background-clip</td>
+                <td>css3</td>
+                <td>设置或检索对象的背景图像向外裁剪的区域
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>padding-box: 从padding区域(含padding)开始向外裁剪背景</li>
+                        <li>border-box: 从border区域(含border)开始向外裁剪背景</li>
+                        <li>center-box: 从center区域开始向外裁剪背景</li>
+                        <li>text(尚不支持): 从前景内容的形状(比如文字)作为裁剪区域向外caijian次即可实现使用背景作为填充色之类的遮罩效果</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr style="color: #f60;">
+                <td>background-size</td>
+                <td>css3</td>
+                <td>设置或检索对象的背景图像的尺寸大小
+                    <br />
+                    <h4>取值: </h4>
+                    <ul>
+                        <li>值可以是长度或百分比不允许负值</li>
+                        <li>auto: 背景图像的真实大小</li>
+                        <li>cover: 将背景图像等比例缩放到完全覆盖容器，背景图像有可能超出容器</li>
+                        <li>contain: 将背景图像等比例缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
